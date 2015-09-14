@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Tugh.xcscheme</key>
+		<key>CommonCrypto.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Tugh.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>5C6C552F1BA77385001C369B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5C6C55581BA77918001C369B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

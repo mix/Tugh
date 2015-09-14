@@ -20,16 +20,11 @@ class UtilTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+    func testBase64HMAC() {
+        let str = "Encrypt the following thing okay, with 532 cows."
+        let secret = "FiveHundredThirtyTwoCows"
+        let encrypted = str.hmacSHA1Base64(secret)
+        XCTAssertEqual("xeFWxerNU5imfCeWnJLDqd1Evu0=", encrypted)
     }
     
 }

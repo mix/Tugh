@@ -11,8 +11,6 @@ build/
 !default.perspectivev3
 *xcuserdatad/
 *.xcuserstate
-*.xcscmblueprint
-#xcshareddata
 profile
 *.moved-aside
 DerivedData
