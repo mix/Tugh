@@ -14,10 +14,15 @@ public class Tugh {
     
         Customarily, the requestTokenURI is "https://api.twitter.com/oauth/request_token"
     */
-    public class func twitterOAuthTokenRequestHeader(requestTokenURI: String, appKey: String, appSecret: String) -> String {
+    public class func twitterOAuthTokenAuthHeader(
+        requestTokenURI: String,
+        appKey: String,
+        appSecret: String,
+        callbackURI: String?) -> String {
+            
         let method = "POST"
-        let timestamp = String(Int(NSDate().timeIntervalSince1970))
-        let nonce = Util.simpleNonce()
+        let timestamp = self.timestamp()
+        let nonce = self.nonce()
         
         var header: [String : String] = [
             "oauth_nonce" : nonce,
@@ -26,6 +31,10 @@ public class Tugh {
             "oauth_timestamp" : timestamp,
             "oauth_version" : "1.0"
         ]
+            
+        if callbackURI != nil {
+            header["oauth_callback"] = callbackURI!
+        }
         
         let signatureBaseFromHeaderParams = header.sort{ $0.0 < $1.0 }.map{ (k,v) -> String in
             let encK = Util.percentEncode(k)
@@ -51,5 +60,13 @@ public class Tugh {
         let headerFinally = "OAuth " + almostHeader
         
         return headerFinally
+    }
+    
+    public class func nonce() -> String {
+        return Util.simpleNonce()
+    }
+    
+    public class func timestamp() -> String {
+        return String(Int(NSDate().timeIntervalSince1970))
     }
 }
