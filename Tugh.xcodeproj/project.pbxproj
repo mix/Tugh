@@ -529,6 +529,7 @@
 				5C6C553C1BA77385001C369B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5C6C553D1BA77385001C369B /* Build configuration list for PBXNativeTarget "TughTests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +538,7 @@
 				5C6C553F1BA77385001C369B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5C6C555E1BA77918001C369B /* Build configuration list for PBXNativeTarget "CommonCrypto" */ = {
 			isa = XCConfigurationList;
@@ -545,6 +547,7 @@
 				5C6C55601BA77918001C369B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
