@@ -9,7 +9,7 @@ This is a brand new thing that's just getting started, but you can submodule and
 ## Usage (so far)
 
 ```swift
-let oAuthHeader = Tugh.twitterOAuthTokenAuthHeader(
+let oAuthHeader = Tugh.twitterAuthHeader(
     "https://api.twitter.com/oauth/request_token",
     method: .POST,
     appKey: appKey,
