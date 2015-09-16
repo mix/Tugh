@@ -17,7 +17,7 @@ let oAuthHeader = Tugh.twitterOAuthTokenAuthHeader(
     callbackURI: "myapp://custom")
 ```
 
-Then, when you construct your Twitter request, you add this to `Authorize` in your request header.
+Then, when you construct your Twitter request, you add this to `Authorization` in your request header.
 
 ### License
 
