@@ -21,7 +21,7 @@ class TughTests: XCTestCase {
         }
     }
     
-    func testTokenAuthHeader() {
+    func testTwitterAuthHeader() {
         // These keys are from the example code in Twitter documentation, and are useless outside of that context
         let appKey = "kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw"
         let appSecret = "LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE"
@@ -38,7 +38,7 @@ class TughTests: XCTestCase {
         XCTAssertEqual(expectedHeaderValue, authHeader)
     }
     
-    func testAddCallbackToAuthGenerator() {
+    func testAddCallbackToAuthHeader() {
         let appKey = "whocaresaboutthisappKeyIDO"
         let appSecret = "thisIsTOTALLYASecretPeople"
         
