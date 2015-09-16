@@ -6,6 +6,19 @@ A pseudo-portmanteau of "Twitter" and "ugh" because constructing OAuth requests 
 
 This is a brand new thing that's just getting started, but you can submodule and include it as a subproject. 
 
+## Usage (so far)
+
+```swift
+let oAuthHeader = Tugh.twitterOAuthTokenAuthHeader(
+    "https://api.twitter.com/oauth/request_token",
+    method: .POST,
+    appKey: appKey,
+    appSecret: appSecret,
+    callbackURI: "myapp://custom")
+```
+
+Then, when you construct your Twitter request, you add this to `Authorize` in your request header.
+
 ### License
 
 ```
