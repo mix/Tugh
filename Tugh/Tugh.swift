@@ -21,7 +21,7 @@ public class Tugh {
     
         Customarily, the requestTokenURI is "https://api.twitter.com/oauth/request_token"
     */
-    public class func twitterOAuthTokenAuthHeader(
+    public class func twitterAuthHeader(
         requestTokenURI: String,
         method: Method,
         appKey: String,

@@ -26,7 +26,7 @@ class TughTests: XCTestCase {
         let appKey = "kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw"
         let appSecret = "LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE"
         
-        let authHeader = TughTest.twitterOAuthTokenAuthHeader(
+        let authHeader = TughTest.twitterAuthHeader(
             "https://api.twitter.com/oauth/request_token",
             method:.POST,
             appKey: appKey,
@@ -42,7 +42,7 @@ class TughTests: XCTestCase {
         let appKey = "whocaresaboutthisappKeyIDO"
         let appSecret = "thisIsTOTALLYASecretPeople"
         
-        let authHeader = TughTest.twitterOAuthTokenAuthHeader(
+        let authHeader = TughTest.twitterAuthHeader(
             "http://example.com/oauth/something",
             method: .POST,
             appKey: appKey,
