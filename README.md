@@ -4,11 +4,13 @@ A pseudo-portmanteau of "Twitter" and "ugh" because constructing OAuth requests 
 
 ## Installation
 
-This is a brand new thing that's just getting started, but you can submodule and include it as a subproject. 
+This is a brand new thing that's just getting started, but you can submodule and include it as a subproject, then add Tugh.framework to your XCode Project’s “Link Binary With Libraries” section.
 
 ## Usage (so far)
 
 ```swift
+#import Tugh
+
 let oAuthHeader = Tugh.twitterAuthHeader(
     "https://api.twitter.com/oauth/request_token",
     method: .POST,
