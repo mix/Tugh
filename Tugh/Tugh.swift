@@ -8,6 +8,13 @@
 
 import Foundation
 
+public enum Method : String {
+    case GET    = "GET"
+    case POST   = "POST"
+    case PUT    = "PUT"
+    case DELETE = "DELETE"
+}
+
 public class Tugh {
     /**
         Generates a request header that you can use to get the Twitter OAuth Token. Take the string result of this function and then append it to the "Authorize" header in your HTTP request.
@@ -16,11 +23,11 @@ public class Tugh {
     */
     public class func twitterOAuthTokenAuthHeader(
         requestTokenURI: String,
+        method: Method,
         appKey: String,
         appSecret: String,
         callbackURI: String?) -> String {
-            
-        let method = "POST"
+
         let timestamp = self.timestamp()
         let nonce = self.nonce()
         

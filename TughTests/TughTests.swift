@@ -28,6 +28,7 @@ class TughTests: XCTestCase {
         
         let authHeader = TughTest.twitterOAuthTokenAuthHeader(
             "https://api.twitter.com/oauth/request_token",
+            method:.POST,
             appKey: appKey,
             appSecret: appSecret,
             callbackURI: nil)
@@ -43,6 +44,7 @@ class TughTests: XCTestCase {
         
         let authHeader = TughTest.twitterOAuthTokenAuthHeader(
             "http://example.com/oauth/something",
+            method: .POST,
             appKey: appKey,
             appSecret: appSecret,
             callbackURI: "tugh://turn/down/for/wat")
