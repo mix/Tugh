@@ -17,9 +17,10 @@ public enum Method : String {
 
 public class Tugh {
     /**
-        Generates a request header that you can use to get the Twitter OAuth Token. Take the string result of this function and then append it to the "Authorize" header in your HTTP request.
+        Generates a request header that you can use to make authorized requests. Take the string result of this function and then append it to the "Authorization" field in your HTTP request header.
     
-        Customarily, the requestTokenURI is "https://api.twitter.com/oauth/request_token"
+        The last known latest Twitter documentation on Authorization headers is here:
+        https://dev.twitter.com/oauth/overview/authorizing-requests
     */
     public class func twitterAuthHeader(
         requestTokenURI: String,
