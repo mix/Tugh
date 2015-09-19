@@ -26,6 +26,12 @@ public struct NotificationInfo {
     public static let URLKey = "Tugh oAuth Callback URL"
 }
 
+public struct TwitterEndpoint {
+    public static let requestTokenURI: String = "https://api.twitter.com/oauth/request_token"// POST
+    public static let authzURI: String = "https://api.twitter.com/oauth/authorize" // GET (login info)
+    public static let accessTokenURI: String = "https://api.twitter.com/oauth/access_token" // POST
+}
+
 public protocol TughProtocol {
     static func twitterAuthHeader(
         requestTokenURI: String,
