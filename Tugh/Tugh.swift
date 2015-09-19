@@ -20,6 +20,12 @@ public enum RequestMethod : String {
 public struct SigningMethod {
     public static let HMAC_SHA1 = "HMAC-SHA1"
 }
+
+public struct NotificationInfo {
+    public static let Name = "Tugh oAuth Notification"
+    public static let URLKey = "Tugh oAuth Callback URL"
+}
+
 public protocol TughProtocol {
     static func twitterAuthHeader(
         requestTokenURI: String,
