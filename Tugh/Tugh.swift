@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Accounts
+import Social
 
 public enum Method : String {
     case GET    = "GET"

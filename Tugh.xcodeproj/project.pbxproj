@@ -13,9 +13,11 @@
 		5C6C55411BA773F5001C369B /* UtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55401BA773F5001C369B /* UtilTests.swift */; settings = {ASSET_TAGS = (); }; };
 		5C6C55431BA77412001C369B /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55421BA77412001C369B /* Util.swift */; settings = {ASSET_TAGS = (); }; };
 		5C6C55441BA77412001C369B /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55421BA77412001C369B /* Util.swift */; settings = {ASSET_TAGS = (); }; };
-		5C6C55681BA77B22001C369B /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6C55591BA77918001C369B /* CommonCrypto.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5C6C55681BA77B22001C369B /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6C55591BA77918001C369B /* CommonCrypto.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		5C6C556C1BA780E4001C369B /* Tugh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C556B1BA780E4001C369B /* Tugh.swift */; settings = {ASSET_TAGS = (); }; };
 		5C6C556D1BA780E4001C369B /* Tugh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C556B1BA780E4001C369B /* Tugh.swift */; settings = {ASSET_TAGS = (); }; };
+		5C9177001BACDDBC00FDD960 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9176FF1BACDDBC00FDD960 /* Social.framework */; };
+		5C9177021BACDE7400FDD960 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9177011BACDE7400FDD960 /* Accounts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		5C6C55641BA779BE001C369B /* iphonesimulator.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = iphonesimulator.modulemap; sourceTree = "<group>"; };
 		5C6C55651BA779D2001C369B /* macosx.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = macosx.modulemap; sourceTree = "<group>"; };
 		5C6C556B1BA780E4001C369B /* Tugh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tugh.swift; sourceTree = "<group>"; };
+		5C9176FF1BACDDBC00FDD960 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5C9177011BACDE7400FDD960 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C9177021BACDE7400FDD960 /* Accounts.framework in Frameworks */,
+				5C9177001BACDDBC00FDD960 /* Social.framework in Frameworks */,
 				5C6C55681BA77B22001C369B /* CommonCrypto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +89,8 @@
 		5C6C551C1BA77385001C369B = {
 			isa = PBXGroup;
 			children = (
+				5C9177011BACDE7400FDD960 /* Accounts.framework */,
+				5C9176FF1BACDDBC00FDD960 /* Social.framework */,
 				5C6C55281BA77385001C369B /* Tugh */,
 				5C6C55341BA77385001C369B /* TughTests */,
 				5C6C555A1BA77918001C369B /* CommonCrypto */,
