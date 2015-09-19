@@ -79,7 +79,7 @@ public protocol TughProtocol {
         callbackURI: String,
         completion:((twSession: TughTwitterSession, error: NSError) -> Void)?)
     
-    func reverseAuthorization(
+    func twitterReverseAuth(
         account: ACAccount,
         consumerKey: String,
         completion:(twitterSession: TughTwitterSession?, error: NSError?) -> Void)
@@ -209,7 +209,7 @@ public class Tugh : TughProtocol {
         Given an ACAccount type, perform reverse authorization to get the TughTwitterSession. This is function
         you use when the customer has entered their Twitter credentials into System Settings.
     */
-    public func reverseAuthorization(
+    public func twitterReverseAuth(
         account: ACAccount,
         consumerKey: String,
         completion:(twitterSession: TughTwitterSession?, error: NSError?) -> Void) {
