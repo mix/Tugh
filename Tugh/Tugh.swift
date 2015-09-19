@@ -32,6 +32,13 @@ public struct TwitterEndpoint {
     public static let accessTokenURI: String = "https://api.twitter.com/oauth/access_token" // POST
 }
 
+public struct TughTwitterSession {
+    let authToken : String
+    let authTokenSecret: String
+    let screenName: String
+    let userID: String
+}
+
 public protocol TughProtocol {
     static func twitterAuthHeader(
         requestTokenURI: String,
