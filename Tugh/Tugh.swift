@@ -32,6 +32,23 @@ public struct TwitterEndpoint {
     public static let accessTokenURI: String = "https://api.twitter.com/oauth/access_token" // POST
 }
 
+/**
+Provide your own implementation of this protocol to give to the Tugh class.
+Generally, it should be some simple wrapper around your network client of choice; this also
+allows for easier testability.
+*/
+public protocol AsyncClientProtocol {
+    func performPOST(
+        uri: String,
+        headers:[String : String]?,
+        completion:((responseDict: [String : String]?, error: NSError?)->Void)?)
+    
+    func performGET(
+        url: String,
+        headres:[String : String]?,
+        completion:((responseDict: [String : String]?, error: NSError?)->Void)?)
+}
+
 public struct TughTwitterSession {
     let authToken : String
     let authTokenSecret: String
