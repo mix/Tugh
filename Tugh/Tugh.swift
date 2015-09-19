@@ -157,6 +157,14 @@ public class Tugh : TughProtocol {
     public class func timestamp() -> String {
         return String(Int(NSDate().timeIntervalSince1970))
     }
+    
+    public class func isOAuthCallback(url: NSURL) -> Bool {
+        if let host = url.host {
+            return host.hasPrefix("oauth")
+        }
+        return false
+    }
+    
     required public init(client: AsyncClientProtocol) {
         httpClient = client
     }
