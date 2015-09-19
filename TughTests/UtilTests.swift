@@ -27,4 +27,18 @@ class UtilTests: XCTestCase {
         XCTAssertEqual("xeFWxerNU5imfCeWnJLDqd1Evu0=", encrypted)
     }
     
+    func testParseQueryString() {
+        let queryString = "oauth_token=6253282-eWudHldSbIaelX7swmsiHImEL4KinwaGloHANdrY&oauth_token_secret=2EEfA6BG3ly3sR3RjE0IBSnlQu4ZrUzPiYKmrkVU&user_id=6253282&screen_name=twitterap"
+        
+        let expectedDictionary = [
+            "oauth_token" : "6253282-eWudHldSbIaelX7swmsiHImEL4KinwaGloHANdrY",
+            "oauth_token_secret" : "2EEfA6BG3ly3sR3RjE0IBSnlQu4ZrUzPiYKmrkVU",
+            "user_id" : "6253282",
+            "screen_name" : "twitterap"
+        ]
+        
+        XCTAssertEqual(expectedDictionary, Util.parseQueryString(queryString)!)
+        
+    }
+    
 }
