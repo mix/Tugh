@@ -79,6 +79,12 @@ public protocol TughProtocol {
         callbackURI: String,
         completion:((twSession: TughTwitterSession, error: NSError) -> Void)?)
 }
+
+public protocol TughDelegate {
+    func tughCustomerDidSelectAccount(acAccount: ACAccount) -> Void
+}
+
+
 public class Tugh : TughProtocol {
     /**
         Generates a request header that you can use to make authorized requests. Take the string result of this function and then append it to the "Authorization" field in your HTTP request header.
