@@ -17,7 +17,30 @@ public enum RequestMethod : String {
     case DELETE = "DELETE"
 }
 
-public class Tugh {
+public protocol TughProtocol {
+    static func twitterAuthHeader(
+        requestTokenURI: String,
+        method: RequestMethod,
+        appKey: String,
+        appSecret: String,
+        additionalHeaders: [String : String]?,
+        callbackURI: String?) -> String
+    
+    static func nonce() -> String
+    
+    static func timestamp() -> String
+    
+    static func isOAuthCallback(url: NSURL) -> Bool
+    
+    static func notifyWithCallbackURL(url: NSURL) -> Void
+    
+    func twitterLogin(
+        consumerKey: String,
+        consumerSecret: String,
+        callbackURI: String,
+        completion:((twSession: TughTwitterSession, error: NSError) -> Void)?)
+}
+public class Tugh : TughProtocol {
     /**
         Generates a request header that you can use to make authorized requests. Take the string result of this function and then append it to the "Authorization" field in your HTTP request header.
     
