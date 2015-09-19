@@ -10,7 +10,7 @@ import Foundation
 import Accounts
 import Social
 
-public enum Method : String {
+public enum RequestMethod : String {
     case GET    = "GET"
     case POST   = "POST"
     case PUT    = "PUT"
@@ -26,7 +26,7 @@ public class Tugh {
     */
     public class func twitterAuthHeader(
         requestTokenURI: String,
-        method: Method,
+        method: RequestMethod,
         appKey: String,
         appSecret: String,
         callbackURI: String?) -> String {
