@@ -205,6 +205,10 @@ public class Tugh : TughProtocol {
         
     }
     
+    /**
+        Given an ACAccount type, perform reverse authorization to get the TughTwitterSession. This is function
+        you use when the customer has entered their Twitter credentials into System Settings.
+    */
     public func reverseAuthorization(
         account: ACAccount,
         consumerKey: String,
