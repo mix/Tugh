@@ -86,6 +86,9 @@ public protocol TughDelegate {
 
 
 public class Tugh : TughProtocol {
+    let httpClient: AsyncClientProtocol
+    var delegate: TughDelegate?
+
     /**
         Generates a request header that you can use to make authorized requests. Take the string result of this function and then append it to the "Authorization" field in your HTTP request header.
     
@@ -146,5 +149,8 @@ public class Tugh : TughProtocol {
     
     public class func timestamp() -> String {
         return String(Int(NSDate().timeIntervalSince1970))
+    }
+    required public init(client: AsyncClientProtocol) {
+        httpClient = client
     }
 }
