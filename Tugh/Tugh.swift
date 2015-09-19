@@ -174,4 +174,29 @@ public class Tugh : TughProtocol {
     required public init(client: AsyncClientProtocol) {
         httpClient = client
     }
+    
+    /**
+        Performs the requisite set of requests against the Twitter API Endpoints to obtain the
+        user credentials (oauth_token, oauth_secret, screen_name, and user_id are encapsulated in the
+        TughTwitterSession struct)
+
+    */
+    public func twitterLogin(consumerKey: String, consumerSecret: String, callbackURI: String, completion: ((twSession: TughTwitterSession, error: NSError) -> Void)?) {
+
+        let oAuthHeader = Tugh.twitterAuthHeader(TwitterEndpoint.requestTokenURI, method: .POST, appKey: consumerKey, appSecret: consumerSecret, additionalHeaders: nil, callbackURI: callbackURI)
+        let headers = [
+            "Authorization" : oAuthHeader
+        ]
+        
+        httpClient.performPOST(TwitterEndpoint.requestTokenURI, headers: headers) { (responseDict, error) -> Void in
+            let oAuthToken = responseDict!["oauth_token"]!
+            self.twitterAuthorize(oAuthToken)
+        }
+        
+        
+    }
+    
+    private func twitterAuthorize(oAuthToken: String) {
+        
+    }
 }
