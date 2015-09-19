@@ -100,6 +100,7 @@ public class Tugh : TughProtocol {
         method: RequestMethod,
         appKey: String,
         appSecret: String,
+        additionalHeaders: [String : String]?,
         callbackURI: String?) -> String {
 
         let timestamp = self.timestamp()
@@ -112,6 +113,12 @@ public class Tugh : TughProtocol {
             "oauth_timestamp" : timestamp,
             "oauth_version" : "1.0"
         ]
+            
+        if additionalHeaders != nil {
+            for (k, v) in additionalHeaders! {
+                header[k] = v
+            }
+        }
             
         if callbackURI != nil {
             header["oauth_callback"] = callbackURI!
