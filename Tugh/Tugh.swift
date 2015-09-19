@@ -109,7 +109,7 @@ public class Tugh : TughProtocol {
         var header: [String : String] = [
             "oauth_nonce" : nonce,
             "oauth_consumer_key" : appKey,
-            "oauth_signature_method" : "HMAC-SHA1",
+            "oauth_signature_method" : SigningMethod.HMAC_SHA1,
             "oauth_timestamp" : timestamp,
             "oauth_version" : "1.0"
         ]
