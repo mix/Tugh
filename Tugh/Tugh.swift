@@ -17,6 +17,9 @@ public enum RequestMethod : String {
     case DELETE = "DELETE"
 }
 
+public struct SigningMethod {
+    public static let HMAC_SHA1 = "HMAC-SHA1"
+}
 public protocol TughProtocol {
     static func twitterAuthHeader(
         requestTokenURI: String,
