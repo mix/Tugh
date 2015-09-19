@@ -165,6 +165,12 @@ public class Tugh : TughProtocol {
         return false
     }
     
+    public class func notifyWithCallbackURL(url: NSURL) {
+        let userInfo = [NotificationInfo.URLKey : url]
+        let notification = NSNotification(name: NotificationInfo.Name, object: nil, userInfo: userInfo)
+        NSNotificationCenter.defaultCenter().postNotification(notification)
+    }
+    
     required public init(client: AsyncClientProtocol) {
         httpClient = client
     }
