@@ -199,4 +199,71 @@ public class Tugh : TughProtocol {
     private func twitterAuthorize(oAuthToken: String) {
         
     }
+    
+    public func reverseAuthorization(
+        consumerKey: String,
+        completion:(twitterSession: TughTwitterSession?, error: NSError?) -> Void) {
+            
+        let accountStore = ACAccountStore()
+        let twAccountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
+        let twRequestTokenURL = NSURL(string: "https://api.twitter.com/oauth/request_token")
+        
+        accountStore.requestAccessToAccountsWithType(twAccountType, options: nil) { (isGranted, error) -> Void in
+            guard isGranted else {
+                debugPrint("tw iOS permissions access error", error)
+                completion(twitterSession: nil, error: error)
+                return
+            }
+            let twAccounts = accountStore.accountsWithAccountType(twAccountType)
+            debugPrint(twAccounts)
+            //    NSDictionary *params = @{TWT_X_AUTH_MODE_KEY: TWT_X_AUTH_MODE_REVERSE_AUTH};
+            
+            let params = [
+                "x_auth_mode" : "reverse_auth"
+            ]
+            let twAccount = twAccounts.first as! ACAccount
+            let slReq = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .POST, URL: twRequestTokenURL, parameters: params)
+            slReq.account = twAccounts.first as! ACAccount
+            
+            slReq.performRequestWithHandler({ (reqTokenData, httpResp, error) -> Void in
+                guard error == nil else {
+                    debugPrint("error", error)
+                    completion(twitterSession: nil, error: error)
+                    return
+                }
+                let oAuthAuthorizationHeader = NSString(data: reqTokenData, encoding: NSUTF8StringEncoding)
+                debugPrint("respString", oAuthAuthorizationHeader)
+                debugPrint("httpResp", httpResp)
+                
+                let innerAccessTokenURL = NSURL(string: "https://api.twitter.com/oauth/access_token")
+                let accessTokenParams: [String : String] = [
+                    "x_reverse_auth_target" : consumerKey,
+                    "x_reverse_auth_parameters" : oAuthAuthorizationHeader as! String
+                ]
+                let accessTokenReq = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .POST, URL: innerAccessTokenURL, parameters: accessTokenParams)
+                accessTokenReq.account = twAccount
+                accessTokenReq.performRequestWithHandler({ (data, httpResp, error) -> Void in
+                    debugPrint("access token httpResp:", httpResp)
+                    
+                    guard error == nil else {
+                        debugPrint("access token req error:", error)
+                        completion(twitterSession: nil, error: error)
+                        return
+                    }
+                    let respString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
+                    let accessTokenDict = Util.parseQueryString(respString)!
+                    let accessToken = accessTokenDict["oauth_token"]!
+                    let accessTokenSecret = accessTokenDict["oauth_token_secret"]!
+                    let userID = accessTokenDict["user_id"]!
+                    let username = accessTokenDict["screen_name"]!
+                    
+                    let twSession = TughTwitterSession(authToken: accessToken, authTokenSecret: accessTokenSecret, screenName: username, userID: userID)
+                    completion(twitterSession: twSession, error: nil)
+                })
+                
+            })
+            
+        }
+
+    }
 }
