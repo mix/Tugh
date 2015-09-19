@@ -91,8 +91,8 @@ public protocol TughDelegate {
 
 
 public class Tugh : TughProtocol {
-    let httpClient: AsyncClientProtocol
-    var delegate: TughDelegate?
+    let httpClient: AsyncClientProtocol?
+    let delegate: TughDelegate?
 
     /**
         Generates a request header that you can use to make authorized requests. Take the string result of this function and then append it to the "Authorization" field in your HTTP request header.
@@ -176,8 +176,9 @@ public class Tugh : TughProtocol {
         NSNotificationCenter.defaultCenter().postNotification(notification)
     }
     
-    required public init(client: AsyncClientProtocol) {
-        httpClient = client
+    required public init(httpClient: AsyncClientProtocol?, delegate: TughDelegate?) {
+        self.httpClient = httpClient
+        self.delegate = delegate
     }
     
     /**
@@ -193,7 +194,7 @@ public class Tugh : TughProtocol {
             "Authorization" : oAuthHeader
         ]
         
-        httpClient.performPOST(TwitterEndpoint.requestTokenURI, headers: headers) { (responseDict, error) -> Void in
+        httpClient!.performPOST(TwitterEndpoint.requestTokenURI, headers: headers) { (responseDict, error) -> Void in
             let oAuthToken = responseDict!["oauth_token"]!
             self.twitterAuthorize(oAuthToken)
         }
