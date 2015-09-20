@@ -42,13 +42,14 @@ allows for easier testability.
 public protocol AsyncClientProtocol {
     func performPOST(
         uri: String,
+        postString: String?,
         headers:[String : String]?,
-        completion:((responseDict: [String : String]?, error: NSError?)->Void)?)
+        completion:((responseDict: [String : String]?, error: NSError?)->Void))
     
     func performGET(
-        url: String,
-        headres:[String : String]?,
-        completion:((responseDict: [String : String]?, error: NSError?)->Void)?)
+        uri: String,
+        headers:[String : String]?,
+        completion:((responseDict: [String : String]?, error: NSError?)->Void))
 }
 
 public struct TughTwitterSession {
