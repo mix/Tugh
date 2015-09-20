@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Tugh Example.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>Tugh.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -28,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>5C6C55581BA77918001C369B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5C8001AC1BAF0AF1001F34AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

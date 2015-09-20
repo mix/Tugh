@@ -16,6 +16,11 @@
 		5C6C55681BA77B22001C369B /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6C55591BA77918001C369B /* CommonCrypto.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		5C6C556C1BA780E4001C369B /* Tugh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C556B1BA780E4001C369B /* Tugh.swift */; settings = {ASSET_TAGS = (); }; };
 		5C6C556D1BA780E4001C369B /* Tugh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C556B1BA780E4001C369B /* Tugh.swift */; settings = {ASSET_TAGS = (); }; };
+		5C8001B01BAF0AF1001F34AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8001AF1BAF0AF1001F34AB /* AppDelegate.swift */; };
+		5C8001B21BAF0AF1001F34AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8001B11BAF0AF1001F34AB /* ViewController.swift */; };
+		5C8001B51BAF0AF1001F34AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8001B31BAF0AF1001F34AB /* Main.storyboard */; };
+		5C8001B71BAF0AF1001F34AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C8001B61BAF0AF1001F34AB /* Assets.xcassets */; };
+		5C8001BA1BAF0AF1001F34AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8001B81BAF0AF1001F34AB /* LaunchScreen.storyboard */; };
 		5C9177001BACDDBC00FDD960 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9176FF1BACDDBC00FDD960 /* Social.framework */; };
 		5C9177021BACDE7400FDD960 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9177011BACDE7400FDD960 /* Accounts.framework */; };
 		5C9177041BAE306000FDD960 /* DefaultAsyncClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9177031BAE306000FDD960 /* DefaultAsyncClient.swift */; settings = {ASSET_TAGS = (); }; };
@@ -54,6 +59,13 @@
 		5C6C55641BA779BE001C369B /* iphonesimulator.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = iphonesimulator.modulemap; sourceTree = "<group>"; };
 		5C6C55651BA779D2001C369B /* macosx.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = macosx.modulemap; sourceTree = "<group>"; };
 		5C6C556B1BA780E4001C369B /* Tugh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tugh.swift; sourceTree = "<group>"; };
+		5C8001AD1BAF0AF1001F34AB /* Tugh Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tugh Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C8001AF1BAF0AF1001F34AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5C8001B11BAF0AF1001F34AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5C8001B41BAF0AF1001F34AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5C8001B61BAF0AF1001F34AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5C8001B91BAF0AF1001F34AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5C8001BB1BAF0AF1001F34AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C9176FF1BACDDBC00FDD960 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5C9177011BACDE7400FDD960 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		5C9177031BAE306000FDD960 /* DefaultAsyncClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAsyncClient.swift; sourceTree = "<group>"; };
@@ -85,6 +97,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5C8001AA1BAF0AF1001F34AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -96,6 +115,7 @@
 				5C6C55281BA77385001C369B /* Tugh */,
 				5C6C55341BA77385001C369B /* TughTests */,
 				5C6C555A1BA77918001C369B /* CommonCrypto */,
+				5C8001AE1BAF0AF1001F34AB /* Example */,
 				5C6C55271BA77385001C369B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -106,6 +126,7 @@
 				5C6C55261BA77385001C369B /* Tugh.framework */,
 				5C6C55301BA77385001C369B /* TughTests.xctest */,
 				5C6C55591BA77918001C369B /* CommonCrypto.framework */,
+				5C8001AD1BAF0AF1001F34AB /* Tugh Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +163,19 @@
 				5C6C55651BA779D2001C369B /* macosx.modulemap */,
 			);
 			path = CommonCrypto;
+			sourceTree = "<group>";
+		};
+		5C8001AE1BAF0AF1001F34AB /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				5C8001AF1BAF0AF1001F34AB /* AppDelegate.swift */,
+				5C8001B11BAF0AF1001F34AB /* ViewController.swift */,
+				5C8001B31BAF0AF1001F34AB /* Main.storyboard */,
+				5C8001B61BAF0AF1001F34AB /* Assets.xcassets */,
+				5C8001B81BAF0AF1001F34AB /* LaunchScreen.storyboard */,
+				5C8001BB1BAF0AF1001F34AB /* Info.plist */,
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +254,23 @@
 			productReference = 5C6C55591BA77918001C369B /* CommonCrypto.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		5C8001AC1BAF0AF1001F34AB /* Tugh Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C8001BE1BAF0AF1001F34AB /* Build configuration list for PBXNativeTarget "Tugh Example" */;
+			buildPhases = (
+				5C8001A91BAF0AF1001F34AB /* Sources */,
+				5C8001AA1BAF0AF1001F34AB /* Frameworks */,
+				5C8001AB1BAF0AF1001F34AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tugh Example";
+			productName = Example;
+			productReference = 5C8001AD1BAF0AF1001F34AB /* Tugh Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -239,6 +290,9 @@
 					5C6C55581BA77918001C369B = {
 						CreatedOnToolsVersion = 7.0;
 					};
+					5C8001AC1BAF0AF1001F34AB = {
+						CreatedOnToolsVersion = 7.0;
+					};
 				};
 			};
 			buildConfigurationList = 5C6C55201BA77385001C369B /* Build configuration list for PBXProject "Tugh" */;
@@ -247,6 +301,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 5C6C551C1BA77385001C369B;
 			productRefGroup = 5C6C55271BA77385001C369B /* Products */;
@@ -256,6 +311,7 @@
 				5C6C55251BA77385001C369B /* Tugh */,
 				5C6C552F1BA77385001C369B /* TughTests */,
 				5C6C55581BA77918001C369B /* CommonCrypto */,
+				5C8001AC1BAF0AF1001F34AB /* Tugh Example */,
 			);
 		};
 /* End PBXProject section */
@@ -279,6 +335,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C8001AB1BAF0AF1001F34AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C8001BA1BAF0AF1001F34AB /* LaunchScreen.storyboard in Resources */,
+				5C8001B71BAF0AF1001F34AB /* Assets.xcassets in Resources */,
+				5C8001B51BAF0AF1001F34AB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +379,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5C8001A91BAF0AF1001F34AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C8001B21BAF0AF1001F34AB /* ViewController.swift in Sources */,
+				5C8001B01BAF0AF1001F34AB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -327,6 +402,25 @@
 			targetProxy = 5C6C55661BA77AFF001C369B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5C8001B31BAF0AF1001F34AB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C8001B41BAF0AF1001F34AB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5C8001B81BAF0AF1001F34AB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C8001B91BAF0AF1001F34AB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5C6C55381BA77385001C369B /* Debug */ = {
@@ -522,6 +616,28 @@
 			};
 			name = Release;
 		};
+		5C8001BC1BAF0AF1001F34AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.otanistudio.Tugh.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5C8001BD1BAF0AF1001F34AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.otanistudio.Tugh.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -560,6 +676,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		5C8001BE1BAF0AF1001F34AB /* Build configuration list for PBXNativeTarget "Tugh Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C8001BC1BAF0AF1001F34AB /* Debug */,
+				5C8001BD1BAF0AF1001F34AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
