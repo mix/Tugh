@@ -97,6 +97,13 @@ OAuth launches either an URL in Safari or a WebView, depending on how you implem
                             <constraint firstAttribute="trailingMargin" secondItem="YQZ-eq-nGR" secondAttribute="trailing" id="uyJ-Hy-JvO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="clearButton" destination="OLn-eD-iM8" id="rFx-aw-7pz"/>
+                        <outlet property="consumerKeyField" destination="CBD-2w-rnc" id="4jn-iv-18j"/>
+                        <outlet property="consumerSecretField" destination="kRA-vi-bbo" id="II0-fU-6g4"/>
+                        <outlet property="oAuthButton" destination="9XN-s6-XAT" id="UM8-J2-TPa"/>
+                        <outlet property="reverseOAuthButton" destination="zdS-I7-Yr5" id="3dZ-a9-vPE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
