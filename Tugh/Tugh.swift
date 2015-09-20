@@ -205,6 +205,9 @@ public class Tugh : TughProtocol {
     }
     
     private func twitterAuthorize(oAuthToken: String) {
+        debugPrint("[Tugh.twitterAuthorize oAuthToken = \(oAuthToken)")
+        self.delegate.tughDidReceiveRequestToken(oAuthToken)
+    }
     }
     
     /**
