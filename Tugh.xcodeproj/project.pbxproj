@@ -18,6 +18,7 @@
 		5C6C556D1BA780E4001C369B /* Tugh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C556B1BA780E4001C369B /* Tugh.swift */; settings = {ASSET_TAGS = (); }; };
 		5C9177001BACDDBC00FDD960 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9176FF1BACDDBC00FDD960 /* Social.framework */; };
 		5C9177021BACDE7400FDD960 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9177011BACDE7400FDD960 /* Accounts.framework */; };
+		5C9177041BAE306000FDD960 /* DefaultAsyncClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9177031BAE306000FDD960 /* DefaultAsyncClient.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		5C6C556B1BA780E4001C369B /* Tugh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tugh.swift; sourceTree = "<group>"; };
 		5C9176FF1BACDDBC00FDD960 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5C9177011BACDE7400FDD960 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		5C9177031BAE306000FDD960 /* DefaultAsyncClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAsyncClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				5C6C552B1BA77385001C369B /* Info.plist */,
 				5C6C55421BA77412001C369B /* Util.swift */,
 				5C6C556B1BA780E4001C369B /* Tugh.swift */,
+				5C9177031BAE306000FDD960 /* DefaultAsyncClient.swift */,
 			);
 			path = Tugh;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C6C55431BA77412001C369B /* Util.swift in Sources */,
+				5C9177041BAE306000FDD960 /* DefaultAsyncClient.swift in Sources */,
 				5C6C556C1BA780E4001C369B /* Tugh.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
