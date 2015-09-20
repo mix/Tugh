@@ -191,7 +191,7 @@ public class Tugh : TughProtocol {
         TughTwitterSession struct)
 
     */
-    public func twitterLogin(consumerKey: String, consumerSecret: String, callbackURI: String, completion: ((twSession: TughTwitterSession, error: NSError) -> Void)?) {
+    public func twitterLogin(consumerKey: String, consumerSecret: String, callbackURI: String) {
 
         let oAuthHeader = Tugh.twitterAuthHeader(TwitterEndpoint.requestTokenURI, method: .POST, appKey: consumerKey, appSecret: consumerSecret, additionalHeaders: nil, callbackURI: callbackURI)
         let headers = [
