@@ -53,10 +53,10 @@ public protocol AsyncClientProtocol {
 }
 
 public struct TughTwitterSession {
-    let authToken : String
-    let authTokenSecret: String
-    let screenName: String
-    let userID: String
+    public let authToken : String
+    public let authTokenSecret: String
+    public let screenName: String
+    public let userID: String
 }
 
 public protocol TughProtocol {
