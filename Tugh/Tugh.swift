@@ -208,6 +208,48 @@ public class Tugh : TughProtocol {
         debugPrint("[Tugh.twitterAuthorize oAuthToken = \(oAuthToken)")
         self.delegate.tughDidReceiveRequestToken(oAuthToken)
     }
+    
+    @objc public func didReceiveOAuthCallback(notification: NSNotification) {
+        if notification.name == NotificationInfo.Name {
+            let verifierURLFromNotification = notification.userInfo![NotificationInfo.URLKey] as! NSURL
+            let verifierComponents = NSURLComponents(string: verifierURLFromNotification.absoluteString)
+            let verifierInfo = Util.parseQueryString(verifierComponents!.query!)!
+            let params: [String : String] = [
+                "oauth_token" : verifierInfo["oauth_token"]!,
+                "oauth_verifier" : verifierInfo["oauth_verifier"]!
+            ]
+            var paramPairs: [String] = []
+            for (name, value) in params {
+                paramPairs.append("\(name)=\(Util.percentEncode(value))")
+            }
+            let paramString = paramPairs.joinWithSeparator("&")
+            let (consumerKey, consumerSecret) = ("placeholder_key", "placeholder_secret")
+            
+            let oAuthHeader = self.dynamicType.twitterAuthHeader(TwitterEndpoint.accessTokenURI, method: .POST, appKey: consumerKey, appSecret: consumerSecret, additionalHeaders:["oauth_verifier" : params["oauth_verifier"]!], callbackURI: nil)
+            
+            let headers = [
+                "Content-Type" : "application/x-www-form-urlencoded",
+                "Authorization" : oAuthHeader
+            ]
+            
+            httpClient.performPOST(
+                TwitterEndpoint.accessTokenURI,
+                postString: paramString,
+                headers: headers,
+                completion: { (responseDict, error) -> Void in
+                    debugPrint("[Tugh.didReceiveOAuthCallback]: responseDict:\n\t\(responseDict)\n\tError: \(error)")
+                    
+                    let userOAuthToken = responseDict!["oauth_token"]!
+                    let userOAuthSecret = responseDict!["oauth_token_secret"]!
+                    let twUserID = responseDict!["user_id"]!
+                    let twUsername = responseDict!["screen_name"]!
+                    
+                    let twSession = TughTwitterSession(authToken: userOAuthToken, authTokenSecret: userOAuthSecret, screenName: twUsername, userID: twUserID)
+                    
+                    self.delegate.tughDidReceiveTwitterSession(twSession)
+            })
+
+        }
     }
     
     /**
