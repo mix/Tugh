@@ -51,7 +51,7 @@
                                 <string key="text">Reverse OAuth requires checking whether entries exist in ACAccountStore. Customers normally enter this info via the official Twitter app or in iOS Settings.
 
 OAuth launches either an URL in Safari or a WebView, depending on how you implement tughDidReceiveRequestToken in TughDelegate.</string>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nue-hW-xFo" userLabel="Vertical Line View">
