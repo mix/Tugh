@@ -78,7 +78,7 @@ public protocol TughProtocol {
     
     func twitterLogin(consumerKey: String, consumerSecret: String, callbackURI: String)
     
-    func twitterReverseAuth(
+    static func twitterReverseAuth(
         account: ACAccount,
         consumerKey: String,
         completion:(twitterSession: TughTwitterSession?, error: NSError?) -> Void)
