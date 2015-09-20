@@ -76,11 +76,7 @@ public protocol TughProtocol {
     
     static func notifyWithCallbackURL(url: NSURL) -> Void
     
-    func twitterLogin(
-        consumerKey: String,
-        consumerSecret: String,
-        callbackURI: String,
-        completion:((twSession: TughTwitterSession, error: NSError) -> Void)?)
+    func twitterLogin(consumerKey: String, consumerSecret: String, callbackURI: String)
     
     func twitterReverseAuth(
         account: ACAccount,
