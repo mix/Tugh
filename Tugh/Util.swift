@@ -23,6 +23,19 @@ public class Util {
         let charset = NSCharacterSet(charactersInString: legit)
         return string.stringByAddingPercentEncodingWithAllowedCharacters(charset)!
     }
+    
+    public class func parseQueryString(queryString: String) -> [String : String]? {
+        var returnDict: [String : String]? = Dictionary<String, String>()
+        
+        // :D
+        if let components = NSURLComponents(string: "http://example.com?" + queryString) {
+            for item in components.queryItems! {
+                returnDict![item.name] = item.value
+            }
+        }
+        
+        return returnDict
+    }
 }
 
 extension String {    

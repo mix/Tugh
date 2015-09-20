@@ -31,6 +31,7 @@ class TughTests: XCTestCase {
             method:.POST,
             appKey: appKey,
             appSecret: appSecret,
+            additionalHeaders: nil,
             callbackURI: nil)
         
         let expectedHeaderValue = "OAuth oauth_signature_method=\"HMAC-SHA1\", oauth_version=\"1.0\", oauth_timestamp=\"1442358472\", oauth_signature=\"G1qKuDVd1VXDu5d1%2BBkM2IjTPtw%3D\", oauth_nonce=\"AlwaysTheSameNonceForTesting\", oauth_consumer_key=\"kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw\""
@@ -47,6 +48,7 @@ class TughTests: XCTestCase {
             method: .POST,
             appKey: appKey,
             appSecret: appSecret,
+            additionalHeaders: nil,
             callbackURI: "tugh://turn/down/for/wat")
         
         let expectedResult = "OAuth oauth_consumer_key=\"whocaresaboutthisappKeyIDO\", oauth_callback=\"tugh%3A%2F%2Fturn%2Fdown%2Ffor%2Fwat\", oauth_signature=\"zCUA46aJNrv6u7pUqbDCpYIGYcA%3D\", oauth_version=\"1.0\", oauth_timestamp=\"1442358472\", oauth_nonce=\"AlwaysTheSameNonceForTesting\", oauth_signature_method=\"HMAC-SHA1\""
