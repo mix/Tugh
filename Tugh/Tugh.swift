@@ -85,7 +85,7 @@ public protocol TughProtocol {
 }
 
 public protocol TughDelegate {
-    func tughCustomerDidSelectAccount(acAccount: ACAccount) -> Void
+    func tughDidReceiveRequestToken(oAuthIntermediateToken: String) -> Void
 }
 
 
