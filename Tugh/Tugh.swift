@@ -91,8 +91,8 @@ public protocol TughDelegate {
 
 
 public class Tugh : TughProtocol {
-    let httpClient: AsyncClientProtocol?
-    let delegate: TughDelegate?
+    let httpClient: AsyncClientProtocol
+    let delegate: TughDelegate
 
     /**
         Generates a request header that you can use to make authorized requests. Take the string result of this function and then append it to the "Authorization" field in your HTTP request header.
