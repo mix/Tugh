@@ -89,11 +89,20 @@ public protocol TughDelegate {
     func tughDidReceiveTwitterSession(twSession: TughTwitterSession) -> Void
 }
 
-
 public class Tugh : TughProtocol {
     let httpClient: AsyncClientProtocol
     let delegate: TughDelegate
 
+    required public init(httpClient: AsyncClientProtocol, delegate: TughDelegate) {
+        self.httpClient = httpClient
+        self.delegate = delegate
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveOAuthCallback:", name: NotificationInfo.Name, object: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     /**
         Generates a request header that you can use to make authorized requests. Take the string result of this function and then append it to the "Authorization" field in your HTTP request header.
     
@@ -174,11 +183,6 @@ public class Tugh : TughProtocol {
         let userInfo = [NotificationInfo.URLKey : url]
         let notification = NSNotification(name: NotificationInfo.Name, object: nil, userInfo: userInfo)
         NSNotificationCenter.defaultCenter().postNotification(notification)
-    }
-    
-    required public init(httpClient: AsyncClientProtocol?, delegate: TughDelegate?) {
-        self.httpClient = httpClient
-        self.delegate = delegate
     }
     
     /**
