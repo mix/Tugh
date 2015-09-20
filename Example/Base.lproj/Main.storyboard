@@ -45,6 +45,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9XN-s6-XAT">
                                 <rect key="frame" x="537" y="147" width="43" height="30"/>
                                 <state key="normal" title="OAuth"/>
+                                <connections>
+                                    <action selector="didTapOAuth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O1m-yp-UuT"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YQZ-eq-nGR">
                                 <rect key="frame" x="20" y="185" width="560" height="395"/>
@@ -65,10 +68,16 @@ OAuth launches either an URL in Safari or a WebView, depending on how you implem
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-eD-iM8">
                                 <rect key="frame" x="94" y="147" width="36" height="30"/>
                                 <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="didTapClear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i4Z-G3-PBM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdS-I7-Yr5">
                                 <rect key="frame" x="377" y="147" width="102" height="30"/>
                                 <state key="normal" title="Reverse OAuth"/>
+                                <connections>
+                                    <action selector="didTapReverseOAuth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cwF-xz-erp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

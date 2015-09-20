@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var consumerKeyField: UITextField!
     @IBOutlet weak var consumerSecretField: UITextField!
@@ -22,9 +22,18 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func didTapReverseOAuth(sender: AnyObject) {
+        debugPrint("reverse derp")
+    }
     
+    @IBAction func didTapOAuth(sender: AnyObject) {
+        debugPrint("derp")
+    }
     
-
+    @IBAction func didTapClear(sender: AnyObject) {
+        debugPrint("clear")
+    }
+    
 
 
 }
