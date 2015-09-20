@@ -198,16 +198,13 @@ public class Tugh : TughProtocol {
             "Authorization" : oAuthHeader
         ]
         
-        httpClient!.performPOST(TwitterEndpoint.requestTokenURI, headers: headers) { (responseDict, error) -> Void in
+        httpClient.performPOST(TwitterEndpoint.requestTokenURI, postString: nil, headers: headers) { (responseDict, error) -> Void in
             let oAuthToken = responseDict!["oauth_token"]!
             self.twitterAuthorize(oAuthToken)
         }
-        
-        
     }
     
     private func twitterAuthorize(oAuthToken: String) {
-        
     }
     
     /**
