@@ -85,7 +85,7 @@ public protocol TughProtocol {
 }
 
 public protocol TughDelegate {
-    func tughDidReceiveRequestToken(oAuthIntermediateToken: String) -> Void
+    func tughDidReceiveRequestToken(requestToken: String) -> Void
     func tughDidReceiveTwitterSession(twSession: TughTwitterSession) -> Void
 }
 
@@ -206,7 +206,9 @@ public class Tugh : TughProtocol {
     
     private func twitterAuthorize(oAuthToken: String) {
         debugPrint("[Tugh.twitterAuthorize oAuthToken = \(oAuthToken)")
-        self.delegate.tughDidReceiveRequestToken(oAuthToken)
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.delegate.tughDidReceiveRequestToken(oAuthToken)
+        }
     }
     
     @objc public func didReceiveOAuthCallback(notification: NSNotification) {
@@ -246,7 +248,9 @@ public class Tugh : TughProtocol {
                     
                     let twSession = TughTwitterSession(authToken: userOAuthToken, authTokenSecret: userOAuthSecret, screenName: twUsername, userID: twUserID)
                     
-                    self.delegate.tughDidReceiveTwitterSession(twSession)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.delegate.tughDidReceiveTwitterSession(twSession)
+                    }
             })
 
         }
