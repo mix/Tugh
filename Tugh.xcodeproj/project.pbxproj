@@ -684,6 +684,7 @@
 				5C8001BD1BAF0AF1001F34AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

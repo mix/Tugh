@@ -102,13 +102,15 @@ class ViewController: UIViewController, UITextFieldDelegate, TughDelegate {
         
     }
     
+    @IBAction func didTapOAuth(sender: AnyObject) {
+        let consumerKey: String = consumerKeyField.text!
+        let consumerSecret: String = consumerSecretField.text!
+        tugh?.twitterLogin(consumerKey, consumerSecret: consumerSecret, callbackURI: "tughexample://oauth/twitter")
+    }
+    
     func updateOutputView(text: String) {
         activityIndicator.stopAnimating()
         outputView.text = "\(outputView.text)\n\n\(text)"
-    }
-    
-    @IBAction func didTapOAuth(sender: AnyObject) {
-        
     }
     
     @IBAction func didTapClear(sender: AnyObject) {
@@ -144,12 +146,16 @@ class ViewController: UIViewController, UITextFieldDelegate, TughDelegate {
 
     // MARK: TughDelegate
     
-    func tughDidReceiveRequestToken(oAuthIntermediateToken: String) {
-        
+    func tughDidReceiveRequestToken(requestToken: String) {
+        let authz = "\(TwitterEndpoint.authzURI)?oauth_token=\(requestToken)"
+        // Alternately, present a web view loaded with this URI
+        UIApplication.sharedApplication().openURL(NSURL(string: authz)!)
     }
     
     func tughDidReceiveTwitterSession(twSession: TughTwitterSession) {
-        
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in            
+            self.updateOutputView("\(twSession)")
+        }
     }
 
 }
