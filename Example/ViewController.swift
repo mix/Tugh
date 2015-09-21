@@ -120,6 +120,11 @@ class ViewController: UIViewController, UITextFieldDelegate, TughDelegate {
         updateButtonState()
     }
     
+    @IBAction func textFieldEditingDidChange(sender: AnyObject) {
+        updateButtonState()
+    }
+    
+    
     func updateButtonState() {
         let enableButtons = consumerKeyField.text?.characters.count > 0 && consumerSecretField.text?.characters.count > 0
         reverseOAuthButton.enabled = enableButtons
@@ -140,8 +145,9 @@ class ViewController: UIViewController, UITextFieldDelegate, TughDelegate {
     
     // MARK: UITextFieldDelegate
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         updateButtonState()
+        return true
     }
 
     // MARK: TughDelegate

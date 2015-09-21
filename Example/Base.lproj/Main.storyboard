@@ -22,6 +22,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
+                                    <action selector="textFieldEditingDidChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="JTg-dP-Iz3"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="KkP-bP-kTC"/>
                                 </connections>
                             </textField>
@@ -30,6 +31,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
+                                    <action selector="textFieldEditingDidChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="cAj-2c-drq"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="vtZ-Nh-zRM"/>
                                 </connections>
                             </textField>
