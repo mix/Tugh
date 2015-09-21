@@ -88,18 +88,7 @@ class ViewController: UIViewController, UITextFieldDelegate, TughDelegate {
         debugPrint(twAccount.username)
         activityIndicator.startAnimating()
         let consumerKey = consumerKeyField.text!
-        Tugh.twitterReverseAuth(twAccount, consumerKey: consumerKey) { (twitterSession, error) -> Void in
-            guard error == nil else {
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.updateOutputView("Problem with reverse oAuth: \(error)")
-                })
-                return
-            }
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.updateOutputView("\(twitterSession!)")
-            })
-        }
-        
+        tugh?.twitterReverseAuth(twAccount, consumerKey: consumerKey)
     }
     
     @IBAction func didTapOAuth(sender: AnyObject) {
@@ -151,6 +140,10 @@ class ViewController: UIViewController, UITextFieldDelegate, TughDelegate {
     }
 
     // MARK: TughDelegate
+    
+    func tughDidFail(error: NSError) {
+        self.updateOutputView("Problem with reverse oAuth: \(error)")
+    }
     
     func tughDidReceiveRequestToken(requestToken: String) {
         let authz = "\(TwitterEndpoint.authzURI)?oauth_token=\(requestToken)"
