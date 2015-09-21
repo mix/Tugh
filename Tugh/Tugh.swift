@@ -77,14 +77,11 @@ public protocol TughProtocol {
     static func notifyWithCallbackURL(url: NSURL) -> Void
     
     func twitterLogin(consumerKey: String, consumerSecret: String, callbackURI: String)
-    
-    static func twitterReverseAuth(
-        account: ACAccount,
-        consumerKey: String,
-        completion:(twitterSession: TughTwitterSession?, error: NSError?) -> Void)
+    func twitterReverseAuth(account: ACAccount, consumerKey: String)
 }
 
 public protocol TughDelegate {
+    func tughDidFail(error: NSError) -> Void
     func tughDidReceiveRequestToken(requestToken: String) -> Void
     func tughDidReceiveTwitterSession(twSession: TughTwitterSession) -> Void
 }
@@ -199,6 +196,27 @@ public class Tugh : TughProtocol {
         ]
         
         httpClient.performPOST(TwitterEndpoint.requestTokenURI, postString: nil, headers: headers) { (responseDict, error) -> Void in
+            guard error == nil else {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.delegate.tughDidFail(error!)
+                })
+                return
+            }
+            
+            guard responseDict?.count > 0 else {
+                // TODO: Make the callback's error object capture the data from the AsyncClient instead
+                let responseError: NSError = NSError(
+                    domain: tughErrorDomain,
+                    code: -3,
+                    userInfo: [
+                        NSLocalizedDescriptionKey : "Failed while trying to retreive \(TwitterEndpoint.requestTokenURI). Check whether your Twitter App's oauth_callback setting is 'oob'"
+                    ])
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.delegate.tughDidFail(responseError)
+                })
+                return
+            }
+            
             let oAuthToken = responseDict!["oauth_token"]!
             self.twitterAuthorize(oAuthToken)
         }
@@ -239,6 +257,11 @@ public class Tugh : TughProtocol {
                 postString: paramString,
                 headers: headers,
                 completion: { (responseDict, error) -> Void in
+                    guard error == nil else {
+                        self.delegate.tughDidFail(error!)
+                        return
+                    }
+                    
                     debugPrint("[Tugh.didReceiveOAuthCallback]: responseDict:\n\t\(responseDict)\n\tError: \(error)")
                     
                     let userOAuthToken = responseDict!["oauth_token"]!
@@ -260,10 +283,7 @@ public class Tugh : TughProtocol {
         Given an ACAccount type, perform reverse authorization to get the TughTwitterSession. This is function
         you use when the customer has entered their Twitter credentials into System Settings.
     */
-    public class func twitterReverseAuth(
-        account: ACAccount,
-        consumerKey: String,
-        completion:(twitterSession: TughTwitterSession?, error: NSError?) -> Void) {
+    public func twitterReverseAuth(account: ACAccount, consumerKey: String) {
             
         let twRequestTokenURL = NSURL(string: TwitterEndpoint.requestTokenURI)
             
@@ -277,7 +297,7 @@ public class Tugh : TughProtocol {
         slReq.performRequestWithHandler({ (reqTokenData, httpResp, error) -> Void in
             guard error == nil else {
                 debugPrint("error", error)
-                completion(twitterSession: nil, error: error)
+                self.delegate.tughDidFail(error)
                 return
             }
             let oAuthAuthorizationHeader = NSString(data: reqTokenData, encoding: NSUTF8StringEncoding)
@@ -296,7 +316,7 @@ public class Tugh : TughProtocol {
                 
                 guard error == nil else {
                     debugPrint("access token req error:", error)
-                    completion(twitterSession: nil, error: error)
+                    self.delegate.tughDidFail(error)
                     return
                 }
                 let respString = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
@@ -307,7 +327,7 @@ public class Tugh : TughProtocol {
                 let username = accessTokenDict["screen_name"]!
                 
                 let twSession = TughTwitterSession(authToken: accessToken, authTokenSecret: accessTokenSecret, screenName: username, userID: userID)
-                completion(twitterSession: twSession, error: nil)
+                self.delegate.tughDidReceiveTwitterSession(twSession)
             })
             
         })

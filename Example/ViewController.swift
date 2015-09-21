@@ -88,18 +88,7 @@ class ViewController: UIViewController, UITextFieldDelegate, TughDelegate {
         debugPrint(twAccount.username)
         activityIndicator.startAnimating()
         let consumerKey = consumerKeyField.text!
-        Tugh.twitterReverseAuth(twAccount, consumerKey: consumerKey) { (twitterSession, error) -> Void in
-            guard error == nil else {
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.updateOutputView("Problem with reverse oAuth: \(error)")
-                })
-                return
-            }
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.updateOutputView("\(twitterSession!)")
-            })
-        }
-        
+        tugh?.twitterReverseAuth(twAccount, consumerKey: consumerKey)
     }
     
     @IBAction func didTapOAuth(sender: AnyObject) {
@@ -119,6 +108,11 @@ class ViewController: UIViewController, UITextFieldDelegate, TughDelegate {
         outputView.text = outputBaseMessage
         updateButtonState()
     }
+    
+    @IBAction func textFieldEditingDidChange(sender: AnyObject) {
+        updateButtonState()
+    }
+    
     
     func updateButtonState() {
         let enableButtons = consumerKeyField.text?.characters.count > 0 && consumerSecretField.text?.characters.count > 0
@@ -140,11 +134,16 @@ class ViewController: UIViewController, UITextFieldDelegate, TughDelegate {
     
     // MARK: UITextFieldDelegate
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         updateButtonState()
+        return true
     }
 
     // MARK: TughDelegate
+    
+    func tughDidFail(error: NSError) {
+        self.updateOutputView("Problem with reverse oAuth: \(error)")
+    }
     
     func tughDidReceiveRequestToken(requestToken: String) {
         let authz = "\(TwitterEndpoint.authzURI)?oauth_token=\(requestToken)"
