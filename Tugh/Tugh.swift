@@ -85,7 +85,7 @@ public protocol TughProtocol {
 }
 
 public protocol TughDelegate {
-    func tughDidReceiveRequestToken(oAuthIntermediateToken: String) -> Void
+    func tughDidReceiveRequestToken(requestToken: String) -> Void
     func tughDidReceiveTwitterSession(twSession: TughTwitterSession) -> Void
 }
 
