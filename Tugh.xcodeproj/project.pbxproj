@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C2B96AC1BB0635900BCF96F /* Tugh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6C55261BA77385001C369B /* Tugh.framework */; };
 		5C6C552A1BA77385001C369B /* Tugh.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C6C55291BA77385001C369B /* Tugh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5C6C55311BA77385001C369B /* Tugh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6C55261BA77385001C369B /* Tugh.framework */; settings = {ASSET_TAGS = (); }; };
 		5C6C55361BA77385001C369B /* TughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55351BA77385001C369B /* TughTests.swift */; };
@@ -101,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C2B96AC1BB0635900BCF96F /* Tugh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

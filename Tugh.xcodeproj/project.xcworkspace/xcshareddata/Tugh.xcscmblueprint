@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "AEFBDBE5FB62A757494AC54CA21EAAD331D86636",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "7C870FED461C23129D19417D90A3913F0A91F44B" : 0,
+    "AEFBDBE5FB62A757494AC54CA21EAAD331D86636" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CD16B554-4756-427D-B3FA-3E1910F154C3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "7C870FED461C23129D19417D90A3913F0A91F44B" : "..",
+    "AEFBDBE5FB62A757494AC54CA21EAAD331D86636" : "Tugh\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Tugh",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Tugh.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:mix\/mix-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7C870FED461C23129D19417D90A3913F0A91F44B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:mix\/Tugh.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AEFBDBE5FB62A757494AC54CA21EAAD331D86636"
+    }
+  ]
+}
