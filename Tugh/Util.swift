@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CommonCrypto
+import CryptoSwift
 
 public class Util {
     public class func simpleNonce() -> String {
@@ -40,21 +40,22 @@ public class Util {
 
 extension String {    
     func hmacSHA1Base64(key: String) -> String {
-        let str = self.cStringUsingEncoding(NSUTF8StringEncoding)
-        let strLen = Int(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
-        let digestLen: Int32 = CC_SHA1_DIGEST_LENGTH
-        let result = UnsafeMutablePointer<CUnsignedChar>.alloc(Int(digestLen))
-        let keyStr = key.cStringUsingEncoding(NSUTF8StringEncoding)
-        let keyLen = Int(key.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
         
-        let alg: CCHmacAlgorithm = CCHmacAlgorithm(kCCHmacAlgSHA1)
-        CCHmac(alg, keyStr!, keyLen, str!, strLen, result)
+        let uInt8Key:[UInt8] = Array(key.utf8)
+        let message = Array(self.utf8)
+
+        let hmacHex:[UInt8] = Authenticator.HMAC(key: uInt8Key, variant: .sha1).authenticate(message)!
+        let digestLen: Int32 = 160 / 8
+        let result = UnsafeMutablePointer<CUnsignedChar>.alloc(Int(digestLen))
+        
+        for var i = 0; i < Int(digestLen); ++i {
+            result[i] = hmacHex[i]
+        }
         
         let data = NSData(bytesNoCopy: result, length: Int(digestLen))
         result.destroy()
+        let base64Result = data.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
         
-        let digest = data.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
-        
-        return digest
+        return base64Result
     }
 }
