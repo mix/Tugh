@@ -1,0 +1,3 @@
+[submodule "Externals/CryptoSwift"]
+	path = Externals/CryptoSwift
+	url = git@github.com:otanistudio/CryptoSwift.git

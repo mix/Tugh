@@ -14,7 +14,6 @@
 		5C6C55411BA773F5001C369B /* UtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55401BA773F5001C369B /* UtilTests.swift */; settings = {ASSET_TAGS = (); }; };
 		5C6C55431BA77412001C369B /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55421BA77412001C369B /* Util.swift */; settings = {ASSET_TAGS = (); }; };
 		5C6C55441BA77412001C369B /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55421BA77412001C369B /* Util.swift */; settings = {ASSET_TAGS = (); }; };
-		5C6C55681BA77B22001C369B /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6C55591BA77918001C369B /* CommonCrypto.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		5C6C556C1BA780E4001C369B /* Tugh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C556B1BA780E4001C369B /* Tugh.swift */; settings = {ASSET_TAGS = (); }; };
 		5C6C556D1BA780E4001C369B /* Tugh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C556B1BA780E4001C369B /* Tugh.swift */; settings = {ASSET_TAGS = (); }; };
 		5C8001B01BAF0AF1001F34AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8001AF1BAF0AF1001F34AB /* AppDelegate.swift */; };
@@ -22,6 +21,7 @@
 		5C8001B51BAF0AF1001F34AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8001B31BAF0AF1001F34AB /* Main.storyboard */; };
 		5C8001B71BAF0AF1001F34AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C8001B61BAF0AF1001F34AB /* Assets.xcassets */; };
 		5C8001BA1BAF0AF1001F34AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8001B81BAF0AF1001F34AB /* LaunchScreen.storyboard */; };
+		5C8687271BB1112E000B4A95 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8687241BB11111000B4A95 /* CryptoSwift.framework */; };
 		5C9177001BACDDBC00FDD960 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9176FF1BACDDBC00FDD960 /* Social.framework */; };
 		5C9177021BACDE7400FDD960 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9177011BACDE7400FDD960 /* Accounts.framework */; };
 		5C9177041BAE306000FDD960 /* DefaultAsyncClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9177031BAE306000FDD960 /* DefaultAsyncClient.swift */; settings = {ASSET_TAGS = (); }; };
@@ -35,12 +35,19 @@
 			remoteGlobalIDString = 5C6C55251BA77385001C369B;
 			remoteInfo = Tugh;
 		};
-		5C6C55661BA77AFF001C369B /* PBXContainerItemProxy */ = {
+		5C8687231BB11111000B4A95 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5C6C551D1BA77385001C369B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5C6C55581BA77918001C369B;
-			remoteInfo = CommonCrypto;
+			containerPortal = 5C86871D1BB11111000B4A95 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		5C8687251BB11111000B4A95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C86871D1BB11111000B4A95 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = CryptoSwiftTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -53,12 +60,6 @@
 		5C6C55371BA77385001C369B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C6C55401BA773F5001C369B /* UtilTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilTests.swift; sourceTree = "<group>"; };
 		5C6C55421BA77412001C369B /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		5C6C55591BA77918001C369B /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C6C555D1BA77918001C369B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C6C55611BA77950001C369B /* CommonCrypto.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = CommonCrypto.xcconfig; sourceTree = "<group>"; };
-		5C6C55631BA779A5001C369B /* iphoneos.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphoneos.modulemap; sourceTree = "<group>"; };
-		5C6C55641BA779BE001C369B /* iphonesimulator.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = iphonesimulator.modulemap; sourceTree = "<group>"; };
-		5C6C55651BA779D2001C369B /* macosx.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = macosx.modulemap; sourceTree = "<group>"; };
 		5C6C556B1BA780E4001C369B /* Tugh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tugh.swift; sourceTree = "<group>"; };
 		5C8001AD1BAF0AF1001F34AB /* Tugh Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tugh Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8001AF1BAF0AF1001F34AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 		5C8001B61BAF0AF1001F34AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C8001B91BAF0AF1001F34AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C8001BB1BAF0AF1001F34AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C86871D1BB11111000B4A95 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = Externals/CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
 		5C9176FF1BACDDBC00FDD960 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5C9177011BACDE7400FDD960 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		5C9177031BAE306000FDD960 /* DefaultAsyncClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAsyncClient.swift; sourceTree = "<group>"; };
@@ -79,7 +81,7 @@
 			files = (
 				5C9177021BACDE7400FDD960 /* Accounts.framework in Frameworks */,
 				5C9177001BACDDBC00FDD960 /* Social.framework in Frameworks */,
-				5C6C55681BA77B22001C369B /* CommonCrypto.framework in Frameworks */,
+				5C8687271BB1112E000B4A95 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,13 +90,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C6C55311BA77385001C369B /* Tugh.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C6C55551BA77918001C369B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,8 +110,8 @@
 				5C9177011BACDE7400FDD960 /* Accounts.framework */,
 				5C9176FF1BACDDBC00FDD960 /* Social.framework */,
 				5C6C55281BA77385001C369B /* Tugh */,
+				5C86871B1BB110E2000B4A95 /* Externals */,
 				5C6C55341BA77385001C369B /* TughTests */,
-				5C6C555A1BA77918001C369B /* CommonCrypto */,
 				5C8001AE1BAF0AF1001F34AB /* Example */,
 				5C6C55271BA77385001C369B /* Products */,
 			);
@@ -127,7 +122,6 @@
 			children = (
 				5C6C55261BA77385001C369B /* Tugh.framework */,
 				5C6C55301BA77385001C369B /* TughTests.xctest */,
-				5C6C55591BA77918001C369B /* CommonCrypto.framework */,
 				5C8001AD1BAF0AF1001F34AB /* Tugh Example.app */,
 			);
 			name = Products;
@@ -155,18 +149,6 @@
 			path = TughTests;
 			sourceTree = "<group>";
 		};
-		5C6C555A1BA77918001C369B /* CommonCrypto */ = {
-			isa = PBXGroup;
-			children = (
-				5C6C555D1BA77918001C369B /* Info.plist */,
-				5C6C55611BA77950001C369B /* CommonCrypto.xcconfig */,
-				5C6C55631BA779A5001C369B /* iphoneos.modulemap */,
-				5C6C55641BA779BE001C369B /* iphonesimulator.modulemap */,
-				5C6C55651BA779D2001C369B /* macosx.modulemap */,
-			);
-			path = CommonCrypto;
-			sourceTree = "<group>";
-		};
 		5C8001AE1BAF0AF1001F34AB /* Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +162,31 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
+		5C86871B1BB110E2000B4A95 /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+				5C86871C1BB110F4000B4A95 /* CryptoSwift */,
+			);
+			name = Externals;
+			sourceTree = "<group>";
+		};
+		5C86871C1BB110F4000B4A95 /* CryptoSwift */ = {
+			isa = PBXGroup;
+			children = (
+				5C86871D1BB11111000B4A95 /* CryptoSwift.xcodeproj */,
+			);
+			name = CryptoSwift;
+			sourceTree = "<group>";
+		};
+		5C86871E1BB11111000B4A95 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5C8687241BB11111000B4A95 /* CryptoSwift.framework */,
+				5C8687261BB11111000B4A95 /* CryptoSwiftTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -188,13 +195,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C6C552A1BA77385001C369B /* Tugh.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C6C55561BA77918001C369B /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +213,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				5C6C55671BA77AFF001C369B /* PBXTargetDependency */,
 			);
 			name = Tugh;
 			productName = Tugh;
@@ -237,24 +236,6 @@
 			productName = TughTests;
 			productReference = 5C6C55301BA77385001C369B /* TughTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		5C6C55581BA77918001C369B /* CommonCrypto */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5C6C555E1BA77918001C369B /* Build configuration list for PBXNativeTarget "CommonCrypto" */;
-			buildPhases = (
-				5C6C55541BA77918001C369B /* Sources */,
-				5C6C55551BA77918001C369B /* Frameworks */,
-				5C6C55561BA77918001C369B /* Headers */,
-				5C6C55571BA77918001C369B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CommonCrypto;
-			productName = CommonCrypto;
-			productReference = 5C6C55591BA77918001C369B /* CommonCrypto.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 		5C8001AC1BAF0AF1001F34AB /* Tugh Example */ = {
 			isa = PBXNativeTarget;
@@ -289,9 +270,6 @@
 					5C6C552F1BA77385001C369B = {
 						CreatedOnToolsVersion = 7.0;
 					};
-					5C6C55581BA77918001C369B = {
-						CreatedOnToolsVersion = 7.0;
-					};
 					5C8001AC1BAF0AF1001F34AB = {
 						CreatedOnToolsVersion = 7.0;
 					};
@@ -308,15 +286,37 @@
 			mainGroup = 5C6C551C1BA77385001C369B;
 			productRefGroup = 5C6C55271BA77385001C369B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5C86871E1BB11111000B4A95 /* Products */;
+					ProjectRef = 5C86871D1BB11111000B4A95 /* CryptoSwift.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5C6C55251BA77385001C369B /* Tugh */,
 				5C6C552F1BA77385001C369B /* TughTests */,
-				5C6C55581BA77918001C369B /* CommonCrypto */,
 				5C8001AC1BAF0AF1001F34AB /* Tugh Example */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5C8687241BB11111000B4A95 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = 5C8687231BB11111000B4A95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5C8687261BB11111000B4A95 /* CryptoSwiftTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CryptoSwiftTests.xctest;
+			remoteRef = 5C8687251BB11111000B4A95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5C6C55241BA77385001C369B /* Resources */ = {
@@ -327,13 +327,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5C6C552E1BA77385001C369B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C6C55571BA77918001C369B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -374,13 +367,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C6C55541BA77918001C369B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5C8001A91BAF0AF1001F34AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,11 +383,6 @@
 			isa = PBXTargetDependency;
 			target = 5C6C55251BA77385001C369B /* Tugh */;
 			targetProxy = 5C6C55321BA77385001C369B /* PBXContainerItemProxy */;
-		};
-		5C6C55671BA77AFF001C369B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5C6C55581BA77918001C369B /* CommonCrypto */;
-			targetProxy = 5C6C55661BA77AFF001C369B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -584,40 +565,6 @@
 			};
 			name = Release;
 		};
-		5C6C555F1BA77918001C369B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C6C55611BA77950001C369B /* CommonCrypto.xcconfig */;
-			buildSettings = {
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = CommonCrypto/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.otanistudio.CommonCrypto;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		5C6C55601BA77918001C369B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C6C55611BA77950001C369B /* CommonCrypto.xcconfig */;
-			buildSettings = {
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = CommonCrypto/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.otanistudio.CommonCrypto;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		5C8001BC1BAF0AF1001F34AB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -666,15 +613,6 @@
 			buildConfigurations = (
 				5C6C553E1BA77385001C369B /* Debug */,
 				5C6C553F1BA77385001C369B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5C6C555E1BA77918001C369B /* Build configuration list for PBXNativeTarget "CommonCrypto" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5C6C555F1BA77918001C369B /* Debug */,
-				5C6C55601BA77918001C369B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
