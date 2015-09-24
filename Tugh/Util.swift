@@ -46,7 +46,7 @@ extension String {
 
         let hmacHex:[UInt8] = Authenticator.HMAC(key: uInt8Key, variant: .sha1).authenticate(message)!
         let digestLen: Int32 = 160 / 8
-        let result = UnsafeMutablePointer<CUnsignedChar>.alloc(Int(digestLen))
+        let result = UnsafeMutablePointer<UInt8>.alloc(Int(digestLen))
         
         for var i = 0; i < Int(digestLen); ++i {
             result[i] = hmacHex[i]
