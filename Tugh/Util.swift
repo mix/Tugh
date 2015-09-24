@@ -45,15 +45,15 @@ extension String {
         let message = Array(self.utf8)
 
         let hmacHex:[UInt8] = Authenticator.HMAC(key: uInt8Key, variant: .sha1).authenticate(message)!
-        let digestLen: Int32 = 160 / 8
-        let result = UnsafeMutablePointer<UInt8>.alloc(Int(digestLen))
+        let bufSize: Int32 = 160 / 8
+        let buffer = UnsafeMutablePointer<UInt8>.alloc(Int(bufSize))
         
-        for var i = 0; i < Int(digestLen); ++i {
-            result[i] = hmacHex[i]
+        for var i = 0; i < Int(bufSize); ++i {
+            buffer[i] = hmacHex[i]
         }
         
-        let data = NSData(bytesNoCopy: result, length: Int(digestLen))
-        result.destroy()
+        let data = NSData(bytesNoCopy: buffer, length: Int(bufSize))
+        buffer.destroy()
         let base64Result = data.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
         
         return base64Result
