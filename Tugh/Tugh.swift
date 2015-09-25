@@ -11,6 +11,7 @@ import Accounts
 import Social
 
 public let tughErrorDomain: String = "com.otanistudio.Tugh.error"
+public let tughUserDefaultsKeyCallbackURI: String = "com.otanistudio.Tugh.callbackURI"
 
 public enum RequestMethod : String {
     case GET    = "GET"
@@ -170,8 +171,10 @@ public class Tugh : TughProtocol {
     }
     
     public class func isOAuthCallback(url: NSURL) -> Bool {
-        if let host = url.host {
-            return host.hasPrefix("oauth")
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if let callbackURI = userDefaults.stringForKey(tughUserDefaultsKeyCallbackURI) {
+            let comp = NSURLComponents(string: callbackURI)
+            return comp?.scheme == url.scheme && comp?.host == url.host && comp?.path == url.path
         }
         return false
     }
@@ -179,6 +182,7 @@ public class Tugh : TughProtocol {
     public class func notifyWithCallbackURL(url: NSURL) {
         let userInfo = [NotificationInfo.URLKey : url]
         let notification = NSNotification(name: NotificationInfo.Name, object: nil, userInfo: userInfo)
+        
         NSNotificationCenter.defaultCenter().postNotification(notification)
     }
     
@@ -189,7 +193,10 @@ public class Tugh : TughProtocol {
 
     */
     public func twitterLogin(consumerKey: String, consumerSecret: String, callbackURI: String) {
-
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setObject(callbackURI, forKey: tughUserDefaultsKeyCallbackURI)
+        userDefaults.synchronize()
+        
         let oAuthHeader = Tugh.twitterAuthHeader(TwitterEndpoint.requestTokenURI, method: .POST, appKey: consumerKey, appSecret: consumerSecret, additionalHeaders: nil, callbackURI: callbackURI)
         let headers = [
             "Authorization" : oAuthHeader
@@ -223,7 +230,7 @@ public class Tugh : TughProtocol {
     }
     
     private func twitterAuthorize(oAuthToken: String) {
-        debugPrint("[Tugh.twitterAuthorize oAuthToken = \(oAuthToken)")
+        debugPrint("[Tugh.twitterAuthorize] oAuthToken = \(oAuthToken)")
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             self.delegate.tughDidReceiveRequestToken(oAuthToken)
         }
@@ -274,6 +281,9 @@ public class Tugh : TughProtocol {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.delegate.tughDidReceiveTwitterSession(twSession)
                     })
+                    
+                    let userDefaults = NSUserDefaults.standardUserDefaults()
+                    userDefaults.removeObjectForKey(tughUserDefaultsKeyCallbackURI)
             })
 
         }
