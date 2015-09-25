@@ -52,8 +52,7 @@ extension String {
             buffer[i] = hmacHex[i]
         }
         
-        let data = NSData(bytesNoCopy: buffer, length: Int(bufSize))
-        buffer.destroy()
+        let data = NSData(bytesNoCopy: buffer, length: Int(bufSize), freeWhenDone: true)
         let base64Result = data.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
         
         return base64Result
