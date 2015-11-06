@@ -7,15 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C2B96AC1BB0635900BCF96F /* Tugh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6C55261BA77385001C369B /* Tugh.framework */; };
 		5C6C552A1BA77385001C369B /* Tugh.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C6C55291BA77385001C369B /* Tugh.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5C6C55311BA77385001C369B /* Tugh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6C55261BA77385001C369B /* Tugh.framework */; settings = {ASSET_TAGS = (); }; };
+		5C6C55311BA77385001C369B /* Tugh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6C55261BA77385001C369B /* Tugh.framework */; };
 		5C6C55361BA77385001C369B /* TughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55351BA77385001C369B /* TughTests.swift */; };
-		5C6C55411BA773F5001C369B /* UtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55401BA773F5001C369B /* UtilTests.swift */; settings = {ASSET_TAGS = (); }; };
-		5C6C55431BA77412001C369B /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55421BA77412001C369B /* Util.swift */; settings = {ASSET_TAGS = (); }; };
-		5C6C55441BA77412001C369B /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55421BA77412001C369B /* Util.swift */; settings = {ASSET_TAGS = (); }; };
-		5C6C556C1BA780E4001C369B /* Tugh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C556B1BA780E4001C369B /* Tugh.swift */; settings = {ASSET_TAGS = (); }; };
-		5C6C556D1BA780E4001C369B /* Tugh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C556B1BA780E4001C369B /* Tugh.swift */; settings = {ASSET_TAGS = (); }; };
+		5C6C55411BA773F5001C369B /* UtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55401BA773F5001C369B /* UtilTests.swift */; };
+		5C6C55431BA77412001C369B /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55421BA77412001C369B /* Util.swift */; };
+		5C6C55441BA77412001C369B /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55421BA77412001C369B /* Util.swift */; };
+		5C6C556C1BA780E4001C369B /* Tugh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C556B1BA780E4001C369B /* Tugh.swift */; };
+		5C6C556D1BA780E4001C369B /* Tugh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C556B1BA780E4001C369B /* Tugh.swift */; };
 		5C8001B01BAF0AF1001F34AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8001AF1BAF0AF1001F34AB /* AppDelegate.swift */; };
 		5C8001B21BAF0AF1001F34AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8001B11BAF0AF1001F34AB /* ViewController.swift */; };
 		5C8001B51BAF0AF1001F34AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8001B31BAF0AF1001F34AB /* Main.storyboard */; };
@@ -24,7 +23,11 @@
 		5C8687271BB1112E000B4A95 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8687241BB11111000B4A95 /* CryptoSwift.framework */; };
 		5C9177001BACDDBC00FDD960 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9176FF1BACDDBC00FDD960 /* Social.framework */; };
 		5C9177021BACDE7400FDD960 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9177011BACDE7400FDD960 /* Accounts.framework */; };
-		5C9177041BAE306000FDD960 /* DefaultAsyncClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9177031BAE306000FDD960 /* DefaultAsyncClient.swift */; settings = {ASSET_TAGS = (); }; };
+		5C9177041BAE306000FDD960 /* DefaultAsyncClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9177031BAE306000FDD960 /* DefaultAsyncClient.swift */; };
+		5CC17D3D1BED723900999E82 /* Tugh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6C55261BA77385001C369B /* Tugh.framework */; };
+		5CC17D3E1BED723900999E82 /* Tugh.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6C55261BA77385001C369B /* Tugh.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CC17D421BED725300999E82 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8687241BB11111000B4A95 /* CryptoSwift.framework */; };
+		5CC17D431BED725300999E82 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8687241BB11111000B4A95 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +52,36 @@
 			remoteGlobalIDString = 754BE46019693E190098E6F3;
 			remoteInfo = CryptoSwiftTests;
 		};
+		5CC17D3F1BED723900999E82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C6C551D1BA77385001C369B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C6C55251BA77385001C369B;
+			remoteInfo = Tugh;
+		};
+		5CC17D441BED725300999E82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C86871D1BB11111000B4A95 /* CryptoSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 754BE45419693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5CC17D411BED723900999E82 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5CC17D3E1BED723900999E82 /* Tugh.framework in Embed Frameworks */,
+				5CC17D431BED725300999E82 /* CryptoSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5C6C55261BA77385001C369B /* Tugh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tugh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,7 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C2B96AC1BB0635900BCF96F /* Tugh.framework in Frameworks */,
+				5CC17D3D1BED723900999E82 /* Tugh.framework in Frameworks */,
+				5CC17D421BED725300999E82 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,10 +277,13 @@
 				5C8001A91BAF0AF1001F34AB /* Sources */,
 				5C8001AA1BAF0AF1001F34AB /* Frameworks */,
 				5C8001AB1BAF0AF1001F34AB /* Resources */,
+				5CC17D411BED723900999E82 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5CC17D401BED723900999E82 /* PBXTargetDependency */,
+				5CC17D451BED725300999E82 /* PBXTargetDependency */,
 			);
 			name = "Tugh Example";
 			productName = Example;
@@ -383,6 +419,16 @@
 			isa = PBXTargetDependency;
 			target = 5C6C55251BA77385001C369B /* Tugh */;
 			targetProxy = 5C6C55321BA77385001C369B /* PBXContainerItemProxy */;
+		};
+		5CC17D401BED723900999E82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C6C55251BA77385001C369B /* Tugh */;
+			targetProxy = 5CC17D3F1BED723900999E82 /* PBXContainerItemProxy */;
+		};
+		5CC17D451BED725300999E82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CryptoSwift;
+			targetProxy = 5CC17D441BED725300999E82 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -569,6 +615,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.otanistudio.Tugh.Example;
@@ -580,6 +627,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.otanistudio.Tugh.Example;
