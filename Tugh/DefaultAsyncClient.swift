@@ -21,28 +21,26 @@ public class DefaultAsyncClient : AsyncClientProtocol {
     
     public func performPOST(
         uri: String,
-        postString: String?,
+        postBody: String?,
         headers: [String : String]?,
-        completion: ((responseDict: [String : String]?, error: NSError?) -> Void)) {
+        completion: ((data: NSData?, error: NSError?) -> Void)) {
         
         let url = NSURL(string: uri)!
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "\(RequestMethod.POST)"
             
-        if postString != nil {
-            request.HTTPBody = postString!.dataUsingEncoding(NSUTF8StringEncoding)
+        if let body = postBody {
+            request.HTTPBody = body.dataUsingEncoding(NSUTF8StringEncoding)
         }
         
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             
-        if headers != nil {
-            for (k, v) in headers! {
-                request.setValue(v, forHTTPHeaderField: k)
-            }
-        }
+        headers?.forEach({ (k, v) -> () in
+            request.setValue(v, forHTTPHeaderField: k)
+        })
         
-        performRequest(request) { (responseDict, response, error) -> Void in
-            completion(responseDict: responseDict, error: error)
+        performRequest(request) { (data, response, error) -> Void in
+            completion(data: data, error: error)
         }
         
     }
@@ -50,7 +48,7 @@ public class DefaultAsyncClient : AsyncClientProtocol {
     public func performGET(
         uri: String,
         headers: [String : String]?,
-        completion: ((responseDict: [String : String]?, error: NSError?) -> Void)) {
+        completion: ((data: NSData?, error: NSError?) -> Void)) {
         
         let url = NSURL(string: uri)!
         let request = NSMutableURLRequest(URL: url)
@@ -62,36 +60,26 @@ public class DefaultAsyncClient : AsyncClientProtocol {
             }
         }
         
-        performRequest(request) { (responseDict, response, error) -> Void in
-            completion(responseDict: responseDict, error: error)
+        performRequest(request) { (data, response, error) -> Void in
+            completion(data: data, error: error)
         }
         
     }
     
     private func performRequest(
         req: NSURLRequest,
-        completion:((responseDict: [String : String]?, response: NSURLResponse?, error: NSError?)->Void)) {
+        completion:((data: NSData?, response: NSURLResponse?, error: NSError?)->Void)) {
         
         sess.dataTaskWithRequest(req) { (data, resp, error) -> Void in
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding) as? String
-            debugPrint("DefaultAsyncClient:", responseString)
             guard error == nil && data != nil else {
-                completion(responseDict: nil, response: resp, error: error)
+                completion(data: nil, response: resp, error: error)
                 return
             }
             
-            if let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding) as? String {
-                let responseDict = Util.parseQueryString(responseString)
-                completion(responseDict: responseDict, response: resp, error: nil)
-            } else {
-                let responseParseErrorInfo = [
-                    NSLocalizedDescriptionKey : "Problem parsing stringified response to Dictionary<String, String> type"
-                ]
-                let conversionError: NSError = NSError(domain: tughErrorDomain, code: -1, userInfo: responseParseErrorInfo)
-                completion(responseDict: nil, response: resp, error: conversionError)
-            }
+            completion(data: data, response: resp, error: error)
             
         }.resume()
     }
+    
     
 }

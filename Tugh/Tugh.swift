@@ -33,6 +33,7 @@ public struct TwitterEndpoint {
     public static let requestTokenURI: String = "https://api.twitter.com/oauth/request_token"// POST
     public static let authzURI: String = "https://api.twitter.com/oauth/authorize" // GET (login info)
     public static let accessTokenURI: String = "https://api.twitter.com/oauth/access_token" // POST
+    public static let verifyCredentialsURI: String = "https://api.twitter.com/1.1/account/verify_credentials.json" // GET
 }
 
 /**
@@ -43,14 +44,14 @@ allows for easier testability.
 public protocol AsyncClientProtocol {
     func performPOST(
         uri: String,
-        postString: String?,
+        postBody: String?,
         headers:[String : String]?,
-        completion:((responseDict: [String : String]?, error: NSError?)->Void))
+        completion:((data: NSData?, error: NSError?) -> Void))
     
     func performGET(
         uri: String,
         headers:[String : String]?,
-        completion:((responseDict: [String : String]?, error: NSError?)->Void))
+        completion:((data: NSData?, error: NSError?) -> Void))
 }
 
 public struct TughTwitterSession {
@@ -202,12 +203,19 @@ public class Tugh : TughProtocol {
             "Authorization" : oAuthHeader
         ]
         
-        httpClient.performPOST(TwitterEndpoint.requestTokenURI, postString: nil, headers: headers) { (responseDict, error) -> Void in
+        httpClient.performPOST(TwitterEndpoint.requestTokenURI, postBody: nil, headers: headers) { (data, error) -> Void in
             guard error == nil else {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.delegate.tughDidFail(error!)
                 })
                 return
+            }
+            
+            var responseDict: [String : String]?
+            do {
+                responseDict = try Util.dictionaryFromQueryStringInData(data!)
+            } catch _ {
+                responseDict = [String : String]()
             }
             
             guard responseDict?.count > 0 else {
@@ -261,12 +269,19 @@ public class Tugh : TughProtocol {
             
             httpClient.performPOST(
                 TwitterEndpoint.accessTokenURI,
-                postString: paramString,
+                postBody: paramString,
                 headers: headers,
-                completion: { (responseDict, error) -> Void in
+                completion: { (data, error) -> Void in
                     guard error == nil else {
                         self.delegate.tughDidFail(error!)
                         return
+                    }
+                    
+                    var responseDict: [String : String]?
+                    do {
+                        responseDict = try Util.dictionaryFromQueryStringInData(data!)
+                    } catch _ {
+                        responseDict = [String : String]()
                     }
                     
                     debugPrint("[Tugh.didReceiveOAuthCallback]: responseDict:\n\t\(responseDict)\n\tError: \(error)")
