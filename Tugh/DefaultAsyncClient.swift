@@ -66,7 +66,7 @@ public class DefaultAsyncClient : AsyncClientProtocol {
         
     }
     
-    private func performRequest(
+    public func performRequest(
         req: NSURLRequest,
         completion:((data: NSData?, response: NSURLResponse?, error: NSError?)->Void)) {
         
