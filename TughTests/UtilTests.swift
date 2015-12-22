@@ -45,7 +45,21 @@ class UtilTests: XCTestCase {
         ]
         
         XCTAssertEqual(expectedDictionary, Util.parseQueryString(queryString)!)
-        
+    }
+    
+    func testParseRequestTokenResponse() {
+        let requestTokenResponse = "OAuth oauth_timestamp=\"1450765842\", oauth_signature=\"B%2asdfsdQj7as%3D\", oauth_consumer_key=\"NvpasfascfiNbWB3Iz\", oauth_nonce=\"cOdeeWQhd6ktnIMByGuKWK%2BS3Utg4xCJKj%2B0bsR38ig%3D\", oauth_token=\"-iuXlwasfsadchh98s\", oauth_signature_method=\"HMAC-SHA1\", oauth_version=\"1.0\""
+        let parsed = Util.dictionaryFromOAuthCSV(requestTokenResponse)
+        let expectedDictionary = [
+            "oauth_nonce": "cOdeeWQhd6ktnIMByGuKWK%2BS3Utg4xCJKj%2B0bsR38ig%3D",
+            "oauth_signature": "B%2asdfsdQj7as%3D",
+            "oauth_version": "1.0",
+            "oauth_timestamp": "1450765842",
+            "oauth_token": "-iuXlwasfsadchh98s",
+            "oauth_consumer_key": "NvpasfascfiNbWB3Iz",
+            "oauth_signature_method": "HMAC-SHA1"
+        ]
+        XCTAssertEqual(expectedDictionary, parsed)
     }
     
 }

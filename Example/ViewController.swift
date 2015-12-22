@@ -88,7 +88,8 @@ class ViewController: UIViewController, UITextFieldDelegate, TughDelegate {
         debugPrint(twAccount.username)
         activityIndicator.startAnimating()
         let consumerKey = consumerKeyField.text!
-        tugh?.twitterReverseAuth(twAccount, consumerKey: consumerKey)
+        let consumerSecret = consumerSecretField.text!
+        tugh?.twitterReverseAuthForApplication(twAccount, consumerKey: consumerKey, consumerSecret: consumerSecret)
     }
     
     @IBAction func didTapOAuth(sender: AnyObject) {
