@@ -10,6 +10,36 @@ import Foundation
 import CryptoSwift
 
 public class Util {
+    
+    public class func dictionaryFromOAuthCSV(string: String) -> [String : String] {
+        let s = string.stringByReplacingOccurrencesOfString("OAuth ", withString: "")
+        var dict = [String : String]()
+        let params = s.componentsSeparatedByString(", ")
+        params.forEach { (param) -> () in
+            let pair = param.componentsSeparatedByString("=")
+            guard pair.count == 2 else {
+                return
+            }
+            let k = pair[0]
+            let v = pair[1].stringByReplacingOccurrencesOfString("\"", withString: "")
+            dict[k] = v
+        }
+        return dict
+    }
+    
+    public class func dictionaryFromQueryStringInData(data: NSData) throws -> [String : String] {
+        if let stringRepresentation = NSString(data: data, encoding: NSUTF8StringEncoding) as? String {
+            let dict = self.parseQueryString(stringRepresentation)
+            return dict!
+        } else {
+            let responseParseErrorInfo = [
+                NSLocalizedDescriptionKey : "Problem converting data object to Dictionary<String, String> type"
+            ]
+            let conversionError: NSError = NSError(domain: tughErrorDomain, code: -1, userInfo: responseParseErrorInfo)
+            throw conversionError
+        }
+    }
+    
     public class func simpleNonce() -> String {
         let s = NSUUID().UUIDString
         let nonce = s.stringByReplacingOccurrencesOfString("-", withString: "")
