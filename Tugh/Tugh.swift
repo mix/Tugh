@@ -99,7 +99,7 @@ public class Tugh : TughProtocol {
     required public init(httpClient: AsyncClientProtocol, delegate: TughDelegate) {
         self.httpClient = httpClient
         self.delegate = delegate
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveOAuthCallback:", name: NotificationInfo.Name, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didReceiveOAuthCallback(_:)), name: NotificationInfo.Name, object: nil)
     }
     
     deinit {
