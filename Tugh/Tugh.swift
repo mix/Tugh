@@ -99,7 +99,7 @@ public class Tugh : TughProtocol {
     required public init(httpClient: AsyncClientProtocol, delegate: TughDelegate) {
         self.httpClient = httpClient
         self.delegate = delegate
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveOAuthCallback:", name: NotificationInfo.Name, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didReceiveOAuthCallback(_:)), name: NotificationInfo.Name, object: nil)
     }
     
     deinit {
@@ -351,8 +351,7 @@ public class Tugh : TughProtocol {
             }
             
             let verifyCredentialsURL = NSURL(string: TwitterEndpoint.verifyCredentialsURI)
-            let slReq = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, URL: verifyCredentialsURL, parameters: nil)
-            slReq.account = account
+            let slReq = SLRequest.init(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, URL: verifyCredentialsURL, parameters: nil)
             
             slReq.performRequestWithHandler({ (data, resp, error) -> Void in
                 guard error == nil else {
@@ -368,7 +367,7 @@ public class Tugh : TughProtocol {
                     "x_reverse_auth_parameters" : reverseOAuthHeaderLikeParam
                 ]
                 
-                let slTokenReq = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .POST, URL: NSURL(string: TwitterEndpoint.accessTokenURI), parameters: accessTokenParams)
+                let slTokenReq = SLRequest.init(forServiceType: SLServiceTypeTwitter, requestMethod: .POST, URL: NSURL(string: TwitterEndpoint.accessTokenURI), parameters: accessTokenParams)
                 slTokenReq.account = account
                 let tokenReq = slTokenReq.preparedURLRequest()
                 
