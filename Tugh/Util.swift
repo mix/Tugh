@@ -78,7 +78,7 @@ extension String {
         let bufSize: Int32 = 160 / 8
         let buffer = UnsafeMutablePointer<UInt8>.alloc(Int(bufSize))
         
-        for var i = 0; i < Int(bufSize); ++i {
+        for i in 0 ..< Int(bufSize) {
             buffer[i] = hmacHex[i]
         }
         
