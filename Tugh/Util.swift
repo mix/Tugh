@@ -69,12 +69,12 @@ public class Util {
 }
 
 extension String {    
-    func hmacSHA1Base64(key: String) -> String {
+    func hmacSHA1Base64(key: String) throws -> String {
         
         let uInt8Key:[UInt8] = Array(key.utf8)
         let message = Array(self.utf8)
 
-        let hmacHex:[UInt8] = Authenticator.HMAC(key: uInt8Key, variant: .sha1).authenticate(message)!
+        let hmacHex:[UInt8] = try Authenticator.HMAC(key: uInt8Key, variant: .sha1).authenticate(message)
         let bufSize: Int32 = 160 / 8
         let buffer = UnsafeMutablePointer<UInt8>.alloc(Int(bufSize))
         
