@@ -72,7 +72,7 @@ public protocol TughProtocol {
         appKey: String,
         appSecret: String,
         additionalHeaders: [String : String]?,
-        callbackURI: String?) -> String
+        callbackURI: String?) throws -> String
     
     static func nonce() -> String
     
@@ -118,7 +118,7 @@ public class Tugh : TughProtocol {
         appKey: String,
         appSecret: String,
         additionalHeaders: [String : String]?,
-        callbackURI: String?) -> String {
+        callbackURI: String?) throws -> String {
 
         let timestamp = self.timestamp()
         let nonce = self.nonce()
@@ -152,7 +152,7 @@ public class Tugh : TughProtocol {
         let signatureBaseString = "\(method)&\(encAPIURI)&\(encParamString)"
         let signingKey = Util.percentEncode(appSecret) + "&"
         
-        let signature = signatureBaseString.hmacSHA1Base64(signingKey)
+        let signature = try signatureBaseString.hmacSHA1Base64(signingKey)
         
         header["oauth_signature"] = signature
         
@@ -205,7 +205,20 @@ public class Tugh : TughProtocol {
         userDefaults.setObject(callbackURI, forKey: tughUserDefaultsKeyCallbackURI)
         userDefaults.synchronize()
         
-        let oAuthHeader = Tugh.twitterAuthHeader(TwitterEndpoint.requestTokenURI, method: .POST, appKey: consumerKey, appSecret: consumerSecret, additionalHeaders: nil, callbackURI: callbackURI)
+        var oAuthHeader: String = ""
+        do {
+            oAuthHeader = try Tugh.twitterAuthHeader(TwitterEndpoint.requestTokenURI, method: .POST, appKey: consumerKey, appSecret: consumerSecret, additionalHeaders: nil, callbackURI: callbackURI)
+        } catch {
+            let oAuthHeaderError = NSError(
+                domain: tughErrorDomain,
+                code: -17,
+                userInfo: [
+                    NSLocalizedDescriptionKey : "[Tugh] twitterLogin: Failed to generate a valid authorization header for \(TwitterEndpoint.requestTokenURI)"
+                ])
+            self.delegate.tughDidFail(oAuthHeaderError)
+            return
+        }
+
         let headers = [
             "Authorization" : oAuthHeader
         ]
@@ -267,7 +280,20 @@ public class Tugh : TughProtocol {
             let paramString = paramPairs.joinWithSeparator("&")
             let (consumerKey, consumerSecret) = ("placeholder_key", "placeholder_secret")
             
-            let oAuthHeader = self.dynamicType.twitterAuthHeader(TwitterEndpoint.accessTokenURI, method: .POST, appKey: consumerKey, appSecret: consumerSecret, additionalHeaders:["oauth_verifier" : params["oauth_verifier"]!], callbackURI: nil)
+            let oAuthHeader: String
+            do {
+                oAuthHeader = try self.dynamicType.twitterAuthHeader(TwitterEndpoint.accessTokenURI, method: .POST, appKey: consumerKey, appSecret: consumerSecret, additionalHeaders:["oauth_verifier" : params["oauth_verifier"]!], callbackURI: nil)
+                
+            } catch {
+                let oAuthHeaderError = NSError(
+                    domain: tughErrorDomain,
+                    code: -18,
+                    userInfo: [
+                        NSLocalizedDescriptionKey : "[Tugh] didReceiveOAuthCallback: Failed to generate a valid authorization header for \(TwitterEndpoint.accessTokenURI)"
+                    ])
+                self.delegate.tughDidFail(oAuthHeaderError)
+                return
+            }
             
             let headers = [
                 "Content-Type" : "application/x-www-form-urlencoded",
@@ -324,7 +350,21 @@ public class Tugh : TughProtocol {
             "x_auth_mode" : "reverse_auth"
         ]
         
-        let reqTokenOAuthHeaderValue = self.dynamicType.twitterAuthHeader(TwitterEndpoint.requestTokenURI, method: .POST, appKey: consumerKey, appSecret: consumerSecret, additionalHeaders: params, callbackURI: "oob")
+        let reqTokenOAuthHeaderValue: String
+        
+        do {
+            reqTokenOAuthHeaderValue = try self.dynamicType.twitterAuthHeader(TwitterEndpoint.requestTokenURI, method: .POST, appKey: consumerKey, appSecret: consumerSecret, additionalHeaders: params, callbackURI: "oob")
+        } catch {
+            let oAuthHeaderError = NSError(
+                domain: tughErrorDomain,
+                code: -19,
+                userInfo: [
+                    NSLocalizedDescriptionKey : "[Tugh] twitterReverseAuthForApplication: Failed to generate a valid authorization header for \(TwitterEndpoint.requestTokenURI)"
+                ])
+            self.delegate.tughDidFail(oAuthHeaderError)
+            return
+        }
+        
         let reqTokenOAuthHeader = ["Authorization" : reqTokenOAuthHeaderValue]
         
         let postBody = params.map { (k, v) -> String in
