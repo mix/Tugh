@@ -20,10 +20,10 @@
 		5C8001B51BAF0AF1001F34AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8001B31BAF0AF1001F34AB /* Main.storyboard */; };
 		5C8001B71BAF0AF1001F34AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C8001B61BAF0AF1001F34AB /* Assets.xcassets */; };
 		5C8001BA1BAF0AF1001F34AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8001B81BAF0AF1001F34AB /* LaunchScreen.storyboard */; };
-		5C8687271BB1112E000B4A95 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8687241BB11111000B4A95 /* CryptoSwift.framework */; };
 		5C9177001BACDDBC00FDD960 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9176FF1BACDDBC00FDD960 /* Social.framework */; };
 		5C9177021BACDE7400FDD960 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9177011BACDE7400FDD960 /* Accounts.framework */; };
 		5C9177041BAE306000FDD960 /* DefaultAsyncClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9177031BAE306000FDD960 /* DefaultAsyncClient.swift */; };
+		5C973CBD1CCEC24700B51B6A /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8687241BB11111000B4A95 /* CryptoSwift.framework */; };
 		5CC17D3D1BED723900999E82 /* Tugh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6C55261BA77385001C369B /* Tugh.framework */; };
 		5CC17D3E1BED723900999E82 /* Tugh.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6C55261BA77385001C369B /* Tugh.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CC17D421BED725300999E82 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8687241BB11111000B4A95 /* CryptoSwift.framework */; };
@@ -134,7 +134,7 @@
 			files = (
 				5C9177021BACDE7400FDD960 /* Accounts.framework in Frameworks */,
 				5C9177001BACDDBC00FDD960 /* Social.framework in Frameworks */,
-				5C8687271BB1112E000B4A95 /* CryptoSwift.framework in Frameworks */,
+				5C973CBD1CCEC24700B51B6A /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
