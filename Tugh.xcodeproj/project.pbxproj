@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C02A1251CCEE22F0085CA13 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8687241BB11111000B4A95 /* CryptoSwift.framework */; };
+		5C6991431CCF1F0A00588585 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8687241BB11111000B4A95 /* CryptoSwift.framework */; };
 		5C6C552A1BA77385001C369B /* Tugh.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C6C55291BA77385001C369B /* Tugh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5C6C55311BA77385001C369B /* Tugh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6C55261BA77385001C369B /* Tugh.framework */; };
 		5C6C55361BA77385001C369B /* TughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6C55351BA77385001C369B /* TughTests.swift */; };
@@ -29,6 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5C6991441CCF1F7000588585 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C86871D1BB11111000B4A95 /* CryptoSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 754BE45419693E190098E6F3;
+			remoteInfo = "CryptoSwift iOS";
+		};
 		5C6C55321BA77385001C369B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5C6C551D1BA77385001C369B /* Project object */;
@@ -128,7 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C02A1251CCEE22F0085CA13 /* CryptoSwift.framework in Frameworks */,
+				5C6991431CCF1F0A00588585 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +269,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5C6991451CCF1F7000588585 /* PBXTargetDependency */,
 			);
 			name = Tugh;
 			productName = Tugh;
@@ -452,6 +460,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5C6991451CCF1F7000588585 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CryptoSwift iOS";
+			targetProxy = 5C6991441CCF1F7000588585 /* PBXContainerItemProxy */;
+		};
 		5C6C55331BA77385001C369B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5C6C55251BA77385001C369B /* Tugh */;
